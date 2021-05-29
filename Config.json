@@ -1,0 +1,11 @@
+{
+  "userParameterDB": "redcrab",
+  "passwordParameterDB": "root",
+  "portParameterDB": "3306",
+  "serverNameDB": "localhost",
+  "databaseNameParameterDB": "accounts",
+  "versionProgram": "0.4",
+  "serverPort": 7000,
+  "logConfPath": "log.config",
+  "configPath": "Config.json"
+}
