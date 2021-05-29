@@ -3,6 +3,13 @@ package Server;
 import java.net.Socket;
 import java.util.logging.Level;
 
+/*
+* The thread that communicates with
+* the client handles its requests.
+*
+* If you know how best to solve this problem,
+* please let the author know.
+* */
 public class ClientThread extends Thread {
     final int maxNumberAttempts;
 

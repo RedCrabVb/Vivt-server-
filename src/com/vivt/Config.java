@@ -10,6 +10,12 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/*
+* Contains the data required to connect to the database,
+* the version of the program,
+* the paths to the files necessary
+* for the program, the port number
+* */
 public class Config {
     private String userParameterDB = "";
     private String passwordParameterDB = "";

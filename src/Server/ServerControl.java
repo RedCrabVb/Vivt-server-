@@ -9,6 +9,11 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+/*
+* Responsible for entering data for the administrator.
+* Responsible for logging.
+* The single-responsibility principle may be violated
+* */
 public class ServerControl extends Thread {
     private static boolean showLog = true;
     private final String cls = "/cls",
@@ -17,7 +22,7 @@ public class ServerControl extends Thread {
 
     public static Logger LOGGER;
 
-    public ServerControl(String configPath){
+    public ServerControl(String configPath) {
         try (FileInputStream ins = new FileInputStream(configPath)) {
             LogManager.getLogManager().readConfiguration(ins);
             LOGGER = Logger.getLogger(Main.class.getName());
