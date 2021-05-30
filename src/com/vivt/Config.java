@@ -25,8 +25,24 @@ public class Config {
     private String versionProgram = "0.4";
     private int serverPort = 0;
 
-    private String logConfPath = "./log.config";
+    private String logConfPath = "./Log.config";
     private String configPath = "./Config.json";
+
+    private static Config config;
+
+    private Config() { }
+
+    private static Config createConfig(String jsonConfig, String configPath) {
+        Config config = new Gson().fromJson(jsonConfig, Config.class);
+        config.configPath = configPath;
+
+        return config;
+    }
+
+    private static String fileToString(String path) throws Exception {
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
+        return new String(encoded, StandardCharsets.UTF_8);
+    }
 
     public int getServerPort() {
         return serverPort;
@@ -60,6 +76,9 @@ public class Config {
         return serverNameDB;
     }
 
+    public String getDatabaseNameParameterDB() {
+        return databaseNameParameterDB;
+    }
 
     public void save() {
         Gson gson = new GsonBuilder().create();
@@ -71,14 +90,6 @@ public class Config {
         }
     }
 
-    public String getDatabaseNameParameterDB() {
-        return databaseNameParameterDB;
-    }
-
-    private static Config config;
-
-    private Config() { }
-
     public static Config getInstance() throws Exception {
         if (config == null) {
             config = getInstance(new String[]{});
@@ -89,40 +100,23 @@ public class Config {
 
     public static Config getInstance(String[] args) throws Exception {
         if (config == null) {
-            String configPath = null, logConfPath = null;
+            String configPath = null;
             for (int i = 0; i < args.length; i++) {
                 switch (args[i]) {
                     case "-configPath":
                         configPath = args[i+1];
                         break;
-                    case "-logPath":
-                        logConfPath = args[i+1];
-                        break;
                 }
             }
-            if (configPath == null || logConfPath == null) {
-                 logConfPath = "log.config";
+            if (configPath == null) {
                  configPath = "Config.json";
             }
 
             String jsonConfig = fileToString(configPath);
-            config = Config.createConfig(jsonConfig, configPath, logConfPath);
+            config = Config.createConfig(jsonConfig, configPath);
             //config.save();
         }
 
         return config;
-    }
-
-    private static Config createConfig(String jsonConfig, String configPath, String logConfPath) {
-        Config config = new Gson().fromJson(jsonConfig, Config.class);
-        config.configPath = configPath;
-        config.logConfPath = logConfPath;
-
-        return config;
-    }
-
-    private static String fileToString(String path) throws Exception {
-        byte[] encoded = Files.readAllBytes(Paths.get(path));
-        return new String(encoded, StandardCharsets.UTF_8);
     }
 }

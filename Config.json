@@ -6,6 +6,6 @@
   "databaseNameParameterDB": "accounts",
   "versionProgram": "0.4",
   "serverPort": 7000,
-  "logConfPath": "log.config",
+  "logConfPath": "Log.config",
   "configPath": "Config.json"
 }

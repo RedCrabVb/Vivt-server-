@@ -5,7 +5,7 @@
 	1. Config.json - for the application to work,
 	2. log.config - for data logging
 * It is advisable to run the program with parameters, otherwise, the default data will be used.
-  Example: '-configPath Config.json -logPath log.config'
+  Example: '-configPath Config.json'
 
 --------------
 # About programm
