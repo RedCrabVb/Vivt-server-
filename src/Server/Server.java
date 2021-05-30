@@ -1,5 +1,7 @@
 package Server;
 
+import API.Command.SwitchCommand;
+
 import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -16,7 +18,7 @@ public class Server {
     private static Boolean isServerRun = true;
 
     protected static LinkedList<ClientThread> serverList = new LinkedList<>();
-    //public static SwitchCommand switchCommand = new SwitchCommand();
+    public static SwitchCommand switchCommand = new SwitchCommand();
 
     public Server(ServerSocket serverSocket) throws Exception {
         Server.serverSocket = serverSocket;
@@ -42,12 +44,12 @@ public class Server {
             ServerControl.LOGGER.log(Level.INFO, "Server start " + new Date().toString());
             while (isServerRun) {
                 Socket socket = serverSocket.accept();
-                serverList.add(new ClientThread(socket, 5));
+                serverList.add(new ClientThread(socket));
             }
         } catch (Exception e) {
             ServerControl.LOGGER.log(Level.WARNING, "The server crashes when adding a client " + e);
         } finally {
-            ServerControl.LOGGER.log(Level.INFO, "server stop " + new Date().toString());
+            ServerControl.LOGGER.log(Level.INFO, "Server stop " + new Date().toString());
         }
     }
 }
