@@ -1,4 +1,6 @@
-package Server;
+package DataBase;
+
+import Server.Server;
 
 import java.util.ArrayList;
 
@@ -14,11 +16,7 @@ public class ClientInfo {
     }
 
     public void setIsRealAccount(String login, String password) {
-       /* MySql.UserInfo userInfo = Server.dataBase.realAccount(login, password);
-        this.ID = userInfo.ID;
-        this.home = userInfo.home;
-        this.isRealAccount = ID != -1;*/
-        this.ID = 1;
+        this.ID = Server.dataBase.realAccount(login, password);
         this.isAuthorized = ID != -1;
     }
 
@@ -34,7 +32,7 @@ public class ClientInfo {
 
     public int getID() { return ID; }
 
-    public boolean isRealAccount(){
+    public boolean isRealAccount() {
         return isRealAccount;
     }
 

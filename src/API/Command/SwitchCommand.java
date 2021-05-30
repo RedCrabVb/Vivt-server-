@@ -11,7 +11,7 @@ import java.util.logging.Level;
  * Command pattern
  */
 public class SwitchCommand {
-    private final HashMap<String, Command> commandMap = new HashMap<>();
+    private HashMap<String, Command> commandMap = new HashMap<>();
 
     public SwitchCommand() {
         register("registration", new Registration());

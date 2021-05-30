@@ -26,7 +26,7 @@ class ClientThreadTest {
     public void serverAcceptsRequest() throws IOException {
         MockSocket mockSocket = new MockSocket();
         BufferedReader requestFrom = new BufferedReader(new InputStreamReader(mockSocket.getInputStream()));
-        assertEquals("{\"header\":\"registration\",\"data\":\"0.4\"}", requestFrom.readLine());
+        assertEquals("{\"header\":\"registration\",\"login\":\"test\",\"password\":\"Pass\"}", requestFrom.readLine());
     }
 
 }
@@ -38,7 +38,7 @@ class MockSocket extends Socket {
     public MockSocket() {}
 
     public InputStream getInputStream() {
-        String str = "{\"header\":\"registration\",\"data\":\"0.4\"}\n";
+        String str = "{\"header\":\"registration\",\"login\":\"test\",\"password\":\"Pass\"}\n";
         return new ByteArrayInputStream(str.getBytes());
     }
 

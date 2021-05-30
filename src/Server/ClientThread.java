@@ -1,5 +1,7 @@
 package Server;
 
+import DataBase.ClientInfo;
+import DataBase.CreationJson;
 import com.google.gson.JsonObject;
 
 import java.net.Socket;
@@ -13,7 +15,7 @@ import java.util.logging.Level;
 * please let the author know.
 * */
 public class ClientThread extends Thread {
-    private ClientInfo clientInfo = new ClientInfo();
+    public ClientInfo clientInfo = new ClientInfo();
     private final DataTransfer dataTransfer;
 
     public ClientThread(Socket socket) {
@@ -43,9 +45,7 @@ public class ClientThread extends Thread {
     }
 
     private void downService(String reason) {
-        JsonObject reasonDisconnect = new JsonObject();
-        reasonDisconnect.addProperty("header", "downService");
-        reasonDisconnect.addProperty("reason", reason);
+        JsonObject reasonDisconnect = CreationJson.message("downService", reason);
 
         dataTransfer.sendJson(reasonDisconnect.toString());
         dataTransfer.close();
@@ -56,15 +56,6 @@ public class ClientThread extends Thread {
     public void sendMessage(JsonObject message){
         dataTransfer.sendJson(message.toString());
     }
-
-    public JsonObject createMessage(String header, String data) {
-        JsonObject message = new JsonObject();
-        message.addProperty("header", header);
-        message.addProperty("data", data);
-
-        return message;
-    }
-
 
     public void close(String reason) {
         System.out.println("Close, reason: " + reason);
