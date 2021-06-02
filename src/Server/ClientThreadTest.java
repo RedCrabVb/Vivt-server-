@@ -40,7 +40,8 @@ class MockSocket extends Socket {
     public MockSocket() {}
 
     public InputStream getInputStream() {
-        String str = "{\"header\":\"registration\",\"login\":\"redcrab\",\"password\":\"password\"}\n";
+        String str = "{\"header\":\"registration\",\"login\":\"testUser\",\"password\":\"pass\"}\n"
+                + "{\"header\":\"person data\"}\n";
         return new ByteArrayInputStream(str.getBytes());
     }
 

@@ -1,5 +1,6 @@
 package Server;
 
+import API.Command.PersonData;
 import API.Command.Registration;
 import API.Command.SwitchCommand;
 import DataBase.DataBase;
@@ -30,6 +31,7 @@ public class Server {
         Server.main();
 
         switchCommand.register("registration", new Registration());
+        switchCommand.register("person data", new PersonData());
 
         Server.dataBase = new MySqlDataBase(Config.getInstance());
     }
