@@ -22,7 +22,7 @@ public class MySqlDataBase implements DataBase {
     public int realAccount(String login, String password) {
         int ID = -1;
         try {
-            String query = "SELECT ID FROM students WHERE username = ? AND password = ?;";
+            String query = "SELECT ID FROM students WHERE mail = ? AND password = ?;";
             PreparedStatement st = connects.prepareStatement(query);
             st.setString(1, login);
             st.setString(2, password);
@@ -41,7 +41,7 @@ public class MySqlDataBase implements DataBase {
 
     @Override
     public JsonObject personData(int ID) throws SQLException {
-        String query = "SELECT mail, grade_book_number, name FROM students " +
+        String query = "SELECT mail, grade_book_number, name_groups, FIO FROM students " +
                 "JOIN groups g on g.ID = students.groups_ID WHERE students.ID = ?;";
 
         PreparedStatement st = connects.prepareStatement(query);

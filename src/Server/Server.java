@@ -1,5 +1,6 @@
 package Server;
 
+import API.Command.CloseConnection;
 import API.Command.PersonData;
 import API.Command.Registration;
 import API.Command.SwitchCommand;
@@ -32,6 +33,7 @@ public class Server {
 
         switchCommand.register("registration", new Registration());
         switchCommand.register("person data", new PersonData());
+        switchCommand.register("null", new CloseConnection());
 
         Server.dataBase = new MySqlDataBase(Config.getInstance());
     }
@@ -42,7 +44,7 @@ public class Server {
 
     public static void shutdowns() throws IOException {
         for (ClientThread ct : serverList) {
-            ct.close("shutdowns server");
+            ct.clientInfo.setReasonDownService("shutdowns server");
             ct.interrupt();
         }
 

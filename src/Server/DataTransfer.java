@@ -40,6 +40,7 @@ public class DataTransfer {
     public JsonObject getJson() {
         try {
             JsonObject jsonPack = JsonParser.parseString(br.readLine()).getAsJsonObject();
+
             ServerControl.LOGGER.log(Level.INFO, "get json: " + jsonPack.toString());
             return jsonPack;
         } catch (Exception e) { ;

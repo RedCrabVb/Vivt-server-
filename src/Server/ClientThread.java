@@ -38,7 +38,6 @@ public class ClientThread extends Thread {
             }
         } catch (IllegalStateException e) {
             ServerControl.LOGGER.log(Level.WARNING, "Error during connection " + e);
-            close(e.toString());
         } finally {
             downService(clientInfo.getReasonDownService());
         }
@@ -57,7 +56,7 @@ public class ClientThread extends Thread {
         dataTransfer.sendJson(message.toString());
     }
 
-    public void close(String reason) {
-        System.out.println("Close, reason: " + reason);
+    public void close() {
+        dataTransfer.close();
     }
 }
