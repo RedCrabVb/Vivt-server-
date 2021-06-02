@@ -4,7 +4,9 @@ import API.Command.Registration;
 import API.Command.SwitchCommand;
 import DataBase.DataBase;
 
-import DataBase.JsonDataBase;
+import DataBase.MySqlDataBase;
+import com.vivt.Config;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -21,13 +23,15 @@ public class Server {
 
     protected static LinkedList<ClientThread> serverList = new LinkedList<>();
     public static SwitchCommand switchCommand = new SwitchCommand();
-    public static DataBase dataBase = new JsonDataBase();
+    public static DataBase dataBase;
 
     public Server(ServerSocket serverSocket) throws Exception {
         Server.serverSocket = serverSocket;
         Server.main();
 
         switchCommand.register("registration", new Registration());
+
+        Server.dataBase = new MySqlDataBase(Config.getInstance());
     }
 
     public static boolean loginIn(ClientThread client) {

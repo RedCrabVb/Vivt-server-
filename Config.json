@@ -3,7 +3,7 @@
   "passwordParameterDB": "root",
   "portParameterDB": "3306",
   "serverNameDB": "localhost",
-  "databaseNameParameterDB": "accounts",
+  "databaseNameParameterDB": "VivtDB",
   "versionProgram": "0.4",
   "serverPort": 7000,
   "logConfPath": "Log.config",
