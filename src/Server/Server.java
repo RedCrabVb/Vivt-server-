@@ -1,9 +1,6 @@
 package Server;
 
-import API.Command.CloseConnection;
-import API.Command.PersonData;
-import API.Command.Registration;
-import API.Command.SwitchCommand;
+import API.Command.*;
 import DataBase.DataBase;
 
 import DataBase.MySqlDataBase;
@@ -28,14 +25,15 @@ public class Server {
     public static DataBase dataBase;
 
     public Server(ServerSocket serverSocket) throws Exception {
-        Server.serverSocket = serverSocket;
-        Server.main();
-
-        switchCommand.register("registration", new Registration());
-        switchCommand.register("person data", new PersonData());
-        switchCommand.register("null", new CloseConnection());
+        Server.switchCommand.register("registration", new Registration());
+        Server.switchCommand.register("person data", new PersonData());
+        Server.switchCommand.register("news", new News());
+        Server.switchCommand.register("null", new CloseConnection());
 
         Server.dataBase = new MySqlDataBase(Config.getInstance());
+
+        Server.serverSocket = serverSocket;
+        Server.main();
     }
 
     public static boolean loginIn(ClientThread client) {

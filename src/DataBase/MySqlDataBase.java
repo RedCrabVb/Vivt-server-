@@ -1,6 +1,7 @@
 package DataBase;
 
 import Server.ServerControl;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.vivt.Config;
 
@@ -72,7 +73,35 @@ public class MySqlDataBase implements DataBase {
 
     @Override
     public JsonObject news() throws SQLException {
-        return null;
+        String query = "select * from news;";
+
+        PreparedStatement st = connects.prepareStatement(query);
+
+        JsonArray arr = new JsonArray();
+
+        ResultSet rs = st.executeQuery();
+        while(rs.next()) {
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            int numColumns = rsmd.getColumnCount();
+
+            JsonObject obj = new JsonObject();
+            for (int i = 1; i <= numColumns; i++) {
+                String column_name = rsmd.getColumnName(i);
+                try {
+                    obj.addProperty(column_name, rs.getObject(column_name).toString());
+                } catch (Exception e) {
+                    obj.addProperty(column_name, "");
+                }
+            }
+
+            arr.add(obj);
+        }
+
+        JsonObject res = new JsonObject();
+        res.add("arr", arr);
+
+        return res;
     }
 
     @Override

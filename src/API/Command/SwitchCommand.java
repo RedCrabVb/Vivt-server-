@@ -14,7 +14,7 @@ public class SwitchCommand {
     private HashMap<String, Command> commandMap = new HashMap<>();
 
     public SwitchCommand() {
-        register("registration", new Registration());
+        //register("registration", new Registration());
     }
 
     public void register(String commandName, Command command) {
