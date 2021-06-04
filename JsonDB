@@ -18,7 +18,7 @@
       "ID": 1,
       "Groups_ID": 1,
       "mail": "mail",
-      "password": "pass",
+      "password": "admin",
       "FIO": "Alex Alex1 Alex2",
       "grade_book_number": "pks-234"
     },
@@ -66,9 +66,9 @@
             "thingsArrayList": [
               {
                 "number_pairs": 1,
-                "name_things": "",
-                "teacher_name": "",
-                "audience": ""
+                "name_things": "Производственная практика (по профилю специальности)",
+                "teacher_name": "Яицкая Елена Владимировна",
+                "audience": "403"
               },
               {
                 "number_pairs": 2,
@@ -421,9 +421,9 @@
               },
               {
                 "number_pairs": 4,
-                "name_things": "",
-                "teacher_name": "",
-                "audience": ""
+                "name_things": "Производственная практика (по профилю специальности)",
+                "teacher_name": "Яицкая Елена Владимировна",
+                "audience": "403"
               },
               {
                 "number_pairs": 5,
@@ -456,9 +456,9 @@
               },
               {
                 "number_pairs": 2,
-                "name_things": "",
-                "teacher_name": "",
-                "audience": ""
+                "name_things": "Биология",
+                "teacher_name": "Клещевникова Мария Олеговна",
+                "audience": "704"
               },
               {
                 "number_pairs": 3,

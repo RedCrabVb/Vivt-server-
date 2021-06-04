@@ -35,12 +35,31 @@ public class JsonDataBase implements DataBase {
                 return JsonParser.parseString(jsonStr).getAsJsonObject();
             }
         }
+
         return null;
     }
 
     @Override
     public JsonObject schedule(int ID) throws SQLException {
-        return null;
+        JsonObject result = new JsonObject();
+        int groups_ID = 0;
+        for (Student elm : dataBaseJson.students) {
+            if (elm.getID() == ID) {
+                groups_ID = elm.getGroups_ID();
+                break;
+            }
+        }
+
+        JsonElement jsonSchedule = null;
+        for (Group group : dataBaseJson.groups) {
+            if (group.getID() == groups_ID) {
+                jsonSchedule = JsonParser.parseString(gson.toJson(group));
+                break;
+            }
+        }
+
+        result.add("schedule", jsonSchedule);
+        return result;
     }
 
     @Override
@@ -49,6 +68,7 @@ public class JsonDataBase implements DataBase {
         var jsonArrNews = JsonParser.parseString(jsonStr).getAsJsonArray();
         JsonObject newJsonObj = new JsonObject();
         newJsonObj.add("news", jsonArrNews);
+
         return newJsonObj;
     }
 
@@ -62,6 +82,17 @@ public class JsonDataBase implements DataBase {
         return 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -173,6 +204,8 @@ class Student {
     public int getID() {
         return this.ID;
     }
+
+    public int getGroups_ID() {return this.Groups_ID;}
 }
 
 /*****/

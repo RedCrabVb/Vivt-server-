@@ -28,6 +28,7 @@ public class Server {
         Server.switchCommand.register("registration", new Registration());
         Server.switchCommand.register("person data", new PersonData());
         Server.switchCommand.register("news", new News());
+        Server.switchCommand.register("schedule", new Schedule());
         Server.switchCommand.register("null", new CloseConnection());
 
         Server.dataBase = new JsonDataBase();
