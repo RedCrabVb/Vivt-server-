@@ -1,5 +1,6 @@
 package API.Command;
 
+import DataBase.CreationJson;
 import Server.ClientThread;
 import Server.ServerControl;
 import com.google.gson.JsonObject;
@@ -14,7 +15,7 @@ public class SwitchCommand {
     private HashMap<String, Command> commandMap = new HashMap<>();
 
     public SwitchCommand() {
-        //register("registration", new Registration());
+
     }
 
     public void register(String commandName, Command command) {
@@ -26,12 +27,12 @@ public class SwitchCommand {
         Command commandObj = commandMap.get(commandJs);
 
         if (commandObj == null) {
-            throw new IllegalStateException("Not found command(old api?): " + json.get("header").getAsString());
+            throw new IllegalStateException("Not found command(old api?): " + commandJs);
         }
 
         try {
             JsonObject jsonResponse = commandObj.execute(client, json);
-            client.sendMessage(jsonResponse);
+            client.sendMessage(CreationJson.templateData(commandJs, jsonResponse));
         } catch (Exception e) {
             ServerControl.LOGGER.log(Level.INFO, "Error: " + e.toString());
         }

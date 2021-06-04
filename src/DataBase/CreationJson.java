@@ -9,31 +9,6 @@ public class CreationJson {
         return templateData(header, message);
     }
 
-    public static JsonObject personData(String FIO,
-                                        String group,
-                                        String studentsBook,
-                                        String mail) {
-        JsonObject json = new JsonObject();
-        json.addProperty("FIO", FIO);
-        json.addProperty("group", group);
-        json.addProperty("studentsBook", studentsBook);
-        json.addProperty("mail", mail);
-
-        return templateData("personData", json);
-    }
-
-    /*public static JsonObject schedule(JsonObject data) {
-        return templateData("schedule", data);
-    }
-
-    public static JsonObject news(JsonObject data) {
-        return templateData("news", data);
-    }
-
-    public static JsonObject importantDates(JsonObject data) {
-        return templateData("importantDates", data);
-    }*/
-
     public static JsonObject templateData(String header, JsonObject data){
         JsonObject json = new JsonObject();
         json.addProperty("header", header);

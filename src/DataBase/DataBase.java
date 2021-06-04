@@ -12,6 +12,4 @@ public interface DataBase {
     JsonObject importantDates() throws SQLException;
     JsonObject message(int ID) throws SQLException;
     JsonObject academicPerformance(int ID) throws SQLException;
-    int getId(String login);
-
 }

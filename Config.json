@@ -1,10 +1,11 @@
 {
+  "typeBase": "json",
+  "pathJsonDataBase": "JsonDB",
   "userParameterDB": "redcrab",
   "passwordParameterDB": "root",
   "portParameterDB": "3306",
   "serverNameDB": "localhost",
   "databaseNameParameterDB": "VivtDB",
-  "pathJsonDataBase": "./JsonDB",
   "versionProgram": "0.4",
   "serverPort": 7000,
   "logConfPath": "Log.config",

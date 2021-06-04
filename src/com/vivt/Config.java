@@ -1,5 +1,6 @@
 package com.vivt;
 
+import DataBase.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -17,6 +18,8 @@ import java.nio.file.Paths;
 * for the program, the port number
 * */
 public class Config {
+    private String typeBase = "";
+    private String pathJsonDataBase = "";
     private String userParameterDB = "";
     private String passwordParameterDB = "";
     private String portParameterDB = "";
@@ -27,7 +30,6 @@ public class Config {
 
     private String logConfPath = "";
     private String configPath = "";
-    private String pathJsonDataBase = "";
 
     private static Config config;
 
@@ -49,40 +51,21 @@ public class Config {
         return serverPort;
     }
 
-    public String getVersionProgram() {
-        return versionProgram;
-    }
-
     public String getLogConfPath() {
         return logConfPath;
     }
 
-    public String getConfigPath() {
-        return configPath;
-    }
-
-    public String getUserParameterDB() {
-        return userParameterDB;
-    }
-
-    public String getPasswordParameterDB() {
-        return passwordParameterDB;
-    }
-
-    public String getPortParameterDB() {
-        return portParameterDB;
-    }
-
-    public String getServerNameDB() {
-        return serverNameDB;
-    }
-
-    public String getDatabaseNameParameterDB() {
-        return databaseNameParameterDB;
-    }
-
-    public String getPathJsonDataBase() {
-        return pathJsonDataBase;
+    public static DataBase databaseCreate(Config config) throws Exception {
+        String typeBase = config.typeBase;
+        if (typeBase.equals("mysql")) {
+            return new MySqlDataBase(config.serverNameDB, config.portParameterDB,
+                        config.databaseNameParameterDB,
+                        config.userParameterDB, config.passwordParameterDB);
+        } else if (typeBase.equals("json")){
+            return new JsonDataBase(config.pathJsonDataBase);
+        } else {
+            throw new Exception("Config error");
+        }
     }
 
     public void save() {

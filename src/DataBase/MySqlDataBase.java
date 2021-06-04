@@ -11,11 +11,11 @@ import java.util.logging.Level;
 public class MySqlDataBase implements DataBase {
     private final Connection connects;
 
-    public MySqlDataBase(Config config) throws SQLException {
+    public MySqlDataBase(String serverName, String port, String databaseName, String userDB, String usersPasswordDB) throws SQLException {
         String url = String.format("jdbc:mysql://%s:%s/%s?allowPublicKeyRetrieval=true&useSSL=false",
-                config.getServerNameDB(), config.getPortParameterDB(), config.getDatabaseNameParameterDB());
+                serverName, port, databaseName);
 
-        connects = DriverManager.getConnection(url, config.getUserParameterDB(), config.getPasswordParameterDB());
+        connects = DriverManager.getConnection(url, userDB, usersPasswordDB);
     }
 
 
@@ -68,7 +68,7 @@ public class MySqlDataBase implements DataBase {
 
     @Override
     public JsonObject schedule(int ID) throws SQLException {
-        return null;
+        return new JsonObject();
     }
 
     @Override
@@ -106,21 +106,16 @@ public class MySqlDataBase implements DataBase {
 
     @Override
     public JsonObject importantDates() throws SQLException {
-        return null;
+        return new JsonObject();
     }
 
     @Override
     public JsonObject message(int ID) throws SQLException {
-        return null;
+        return new JsonObject();
     }
 
     @Override
     public JsonObject academicPerformance(int ID) throws SQLException {
-        return null;
-    }
-
-    @Override
-    public int getId(String login) {
-        return 0;
+        return new JsonObject();
     }
 }

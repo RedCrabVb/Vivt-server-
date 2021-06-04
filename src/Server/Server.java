@@ -3,7 +3,6 @@ package Server;
 import API.Command.*;
 import DataBase.DataBase;
 
-import DataBase.JsonDataBase;
 import com.vivt.Config;
 
 import java.io.IOException;
@@ -16,17 +15,12 @@ import java.util.logging.Level;
  * Creates streams for new customers, stores some important objects
  */
 public class Server {
-    //private static DataChecking dataChecking;
     private static ServerSocket serverSocket;
     private static Boolean isServerRun = true;
 
     protected static LinkedList<ClientThread> serverList = new LinkedList<>();
     public static SwitchCommand switchCommand = new SwitchCommand();
     public static DataBase dataBase;
-
-    public static DataBase databaseCreate() throws Exception {
-        return new JsonDataBase(Config.getInstance());
-    }
 
     public Server(ServerSocket serverSocket) throws Exception {
         Server.switchCommand.register("registration", new Registration());
@@ -36,14 +30,10 @@ public class Server {
         Server.switchCommand.register("schedule", new Schedule());
         Server.switchCommand.register("null", new CloseConnection());
 
-        Server.dataBase = databaseCreate();
+        Server.dataBase = Config.databaseCreate(Config.getInstance());
 
         Server.serverSocket = serverSocket;
-        Server.main();
-    }
-
-    public static boolean loginIn(ClientThread client) {
-        return false;//dataChecking.check(client);
+        Server.run();
     }
 
     public static void shutdowns() throws IOException {
@@ -56,7 +46,7 @@ public class Server {
         isServerRun = false;
     }
 
-    private static void main() {
+    private static void run() {
         try {
             ServerControl.LOGGER.log(Level.INFO, "Server start " + new Date().toString());
             while (isServerRun) {

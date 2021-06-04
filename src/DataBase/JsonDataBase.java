@@ -46,9 +46,8 @@ public class JsonDataBase implements DataBase {
         return dataBase;
     }
 
-    public JsonDataBase(Config config) throws FileNotFoundException {
-        dataBaseJson = gson.fromJson(new FileReader(config.getPathJsonDataBase()), DataBaseJson.class);
-        System.out.println(gson.toJson(init()));
+    public JsonDataBase(String pathJsonDataBase) throws FileNotFoundException {
+        dataBaseJson = gson.fromJson(new FileReader(pathJsonDataBase), DataBaseJson.class);
     }
     @Override
     public int realAccount(String login, String password) {
@@ -128,11 +127,6 @@ public class JsonDataBase implements DataBase {
     @Override
     public JsonObject academicPerformance(int ID) throws SQLException {
         return null;
-    }
-
-    @Override
-    public int getId(String login) {
-        return 0;
     }
 }
 

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class ServerControl extends Thread {
     private static boolean showLog = true;
     private final String cls = "/cls",
-            info = "/info", infoUser = "/infoUser", logShow = "/logShow", shutdowns = "/shutdowns",
+            info = "/info", logShow = "/logShow", shutdowns = "/shutdowns",
             help = "/help";
 
     public static Logger LOGGER;
@@ -38,7 +38,7 @@ public class ServerControl extends Thread {
         String login;
 
         String _help = " /cls - clear terminal \n /logShow \n " +
-                "/info - server status information \n /infoUser [user] \n /shutdowns \n /help - it is reference";
+                "/info - server status information \n /shutdowns \n /help - it is reference";
         System.out.println(_help);
 
         while (true) {
@@ -46,10 +46,6 @@ public class ServerControl extends Thread {
                 switch (scanner.next()) {
                     case cls:
                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                        break;
-                    case infoUser:
-                        login = scanner.next();
-                        System.out.println("info user: " + login.toLowerCase(Locale.ROOT)); //+ mySql.basicData(mySql.getId(login)) + ",\n\tUser connected " + Server.isThereSuchAUser(login));
                         break;
                     case info:
                         System.out.println("Active compounds: " + Server.serverList.size());
