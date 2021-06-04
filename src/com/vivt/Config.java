@@ -25,8 +25,9 @@ public class Config {
     private String versionProgram = "0.4";
     private int serverPort = 0;
 
-    private String logConfPath = "./Log.config";
-    private String configPath = "./Config.json";
+    private String logConfPath = "";
+    private String configPath = "";
+    private String pathJsonDataBase = "";
 
     private static Config config;
 
@@ -78,6 +79,10 @@ public class Config {
 
     public String getDatabaseNameParameterDB() {
         return databaseNameParameterDB;
+    }
+
+    public String getPathJsonDataBase() {
+        return pathJsonDataBase;
     }
 
     public void save() {

@@ -24,14 +24,19 @@ public class Server {
     public static SwitchCommand switchCommand = new SwitchCommand();
     public static DataBase dataBase;
 
+    public static DataBase databaseCreate() throws Exception {
+        return new JsonDataBase(Config.getInstance());
+    }
+
     public Server(ServerSocket serverSocket) throws Exception {
         Server.switchCommand.register("registration", new Registration());
         Server.switchCommand.register("person data", new PersonData());
+        Server.switchCommand.register("message", new Message());
         Server.switchCommand.register("news", new News());
         Server.switchCommand.register("schedule", new Schedule());
         Server.switchCommand.register("null", new CloseConnection());
 
-        Server.dataBase = new JsonDataBase();
+        Server.dataBase = databaseCreate();
 
         Server.serverSocket = serverSocket;
         Server.main();

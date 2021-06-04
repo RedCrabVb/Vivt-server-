@@ -110,6 +110,16 @@ public class MySqlDataBase implements DataBase {
     }
 
     @Override
+    public JsonObject message(int ID) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public JsonObject academicPerformance(int ID) throws SQLException {
+        return null;
+    }
+
+    @Override
     public int getId(String login) {
         return 0;
     }

@@ -10,6 +10,8 @@ public interface DataBase {
     JsonObject schedule(int ID) throws SQLException;
     JsonObject news() throws SQLException;
     JsonObject importantDates() throws SQLException;
+    JsonObject message(int ID) throws SQLException;
+    JsonObject academicPerformance(int ID) throws SQLException;
     int getId(String login);
 
 }

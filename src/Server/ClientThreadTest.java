@@ -43,6 +43,7 @@ class MockSocket extends Socket {
         String str = "{\"header\":\"registration\",\"login\":\"mail\",\"password\":\"pass\"}\n"
                 + "{\"header\":\"person data\"}\n"
                 + "{\"header\":\"schedule\"}\n"
+                + "{\"header\":\"message\"}\n"
                 + "{\"header\":\"news\"}\n";
         return new ByteArrayInputStream(str.getBytes());
     }

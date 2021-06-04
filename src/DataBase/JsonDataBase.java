@@ -1,6 +1,7 @@
 package DataBase;
 
 import com.google.gson.*;
+import com.vivt.Config;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -13,8 +14,41 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class JsonDataBase implements DataBase {
     private DataBaseJson dataBaseJson;
     private Gson gson = new Gson();
-    public JsonDataBase() throws FileNotFoundException {
-        dataBaseJson = gson.fromJson(new FileReader("JsonDB"), DataBaseJson.class);
+
+    private DataBaseJson init() {
+        DataBaseJson dataBase = new DataBaseJson();
+
+        Group newGroup = new Group("pks-29");
+        Group newGroup1 = new Group("d-30");
+
+        Student student = new Student(newGroup.getID(), "mail", "pass", "Alex Alex1 Alex2", "pks-234");
+        Student student2 = new Student(newGroup.getID(), "gmail", "pass234", "Pasha Pasha1 Pasha2", "pks-235");
+        Student student3 = new Student(newGroup.getID(), "ymail@mail.com", "wrq", "Lera Lera1 Lera2", "pks-236");
+        Student student4 = new Student(newGroup.getID(), "gmail", "234", "Ruslan Ruslan1 Ruslan2", "pks-237");
+        Student student5 = new Student(newGroup1.getID(), "pass", "pass", "Alex Alex1 Alex2", "d-234");
+
+        dataBase.students.add(student);
+        dataBase.students.add(student2);
+        dataBase.students.add(student3);
+        dataBase.students.add(student4);
+        dataBase.students.add(student5);
+
+        dataBase.groups.add(newGroup);
+        dataBase.groups.add(newGroup1);
+
+        dataBase.news.add(new News());
+        dataBase.news.add(new News());
+
+        dataBase.messages.add(new Message(student.getID(), "Main", "bal_bal_bla 12", student2.getID()));
+        dataBase.messages.add(new Message(student.getID(), "LK", "bal_bal_bla 15", student5.getID()));
+        dataBase.messages.add(new Message(student2.getID(), "LK", "bal_bal_bla 23", student3.getID()));
+
+        return dataBase;
+    }
+
+    public JsonDataBase(Config config) throws FileNotFoundException {
+        dataBaseJson = gson.fromJson(new FileReader(config.getPathJsonDataBase()), DataBaseJson.class);
+        System.out.println(gson.toJson(init()));
     }
     @Override
     public int realAccount(String login, String password) {
@@ -78,6 +112,25 @@ public class JsonDataBase implements DataBase {
     }
 
     @Override
+    public JsonObject message(int ID) throws SQLException {
+        JsonArray jsonMsg = new JsonArray();
+        for (Message msg : dataBaseJson.messages) {
+            if (msg.getID() == ID) {
+                jsonMsg.add(JsonParser.parseString(gson.toJson(msg)));
+            }
+        }
+
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("msg", jsonMsg);
+        return jsonObject;
+    }
+
+    @Override
+    public JsonObject academicPerformance(int ID) throws SQLException {
+        return null;
+    }
+
+    @Override
     public int getId(String login) {
         return 0;
     }
@@ -99,6 +152,7 @@ public class JsonDataBase implements DataBase {
 class DataBaseJson {
     public ArrayList<News> news = new ArrayList<>();
     public ArrayList<Student> students = new ArrayList<>();
+    public ArrayList<Message> messages = new ArrayList<>();
     public ArrayList<Group> groups = new ArrayList<>();
 }
 
@@ -209,3 +263,25 @@ class Student {
 }
 
 /*****/
+
+class Message {
+    private static final AtomicInteger count = new AtomicInteger(0);
+    private int ID;
+    private int recipient;
+    private int from_whom;
+    private Boolean is_read;
+    private String header;
+    private String text;
+
+    public Message(int recipient, String header, String text, int from_whom) {
+        this.ID = count.incrementAndGet();
+        this.recipient = recipient;
+        this.from_whom = from_whom;
+        this.text = text;
+        this.header = header;
+    }
+
+    public int getID() {
+        return this.recipient;
+    }
+}
