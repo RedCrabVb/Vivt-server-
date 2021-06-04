@@ -3,7 +3,7 @@ package Server;
 import API.Command.*;
 import DataBase.DataBase;
 
-import DataBase.MySqlDataBase;
+import DataBase.JsonDataBase;
 import com.vivt.Config;
 
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class Server {
         Server.switchCommand.register("news", new News());
         Server.switchCommand.register("null", new CloseConnection());
 
-        Server.dataBase = new MySqlDataBase(Config.getInstance());
+        Server.dataBase = new JsonDataBase();
 
         Server.serverSocket = serverSocket;
         Server.main();

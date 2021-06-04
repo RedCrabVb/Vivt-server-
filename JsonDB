@@ -1,0 +1,734 @@
+{
+  "news": [
+    {
+      "ID": 1,
+      "name_news": "None_name",
+      "text_news": "None_text",
+      "img_path": "./img.png"
+    },
+    {
+      "ID": 2,
+      "name_news": "None_name",
+      "text_news": "None_text",
+      "img_path": "./img.png"
+    }
+  ],
+  "students": [
+    {
+      "ID": 1,
+      "Groups_ID": 1,
+      "mail": "mail",
+      "password": "pass",
+      "FIO": "Alex Alex1 Alex2",
+      "grade_book_number": "pks-234"
+    },
+    {
+      "ID": 2,
+      "Groups_ID": 1,
+      "mail": "gmail",
+      "password": "pass234",
+      "FIO": "Pasha Pasha1 Pasha2",
+      "grade_book_number": "pks-235"
+    },
+    {
+      "ID": 3,
+      "Groups_ID": 1,
+      "mail": "ymail@mail.com",
+      "password": "wrq",
+      "FIO": "Lera Lera1 Lera2",
+      "grade_book_number": "pks-236"
+    },
+    {
+      "ID": 4,
+      "Groups_ID": 1,
+      "mail": "gmail",
+      "password": "234",
+      "FIO": "Ruslan Ruslan1 Ruslan2",
+      "grade_book_number": "pks-237"
+    },
+    {
+      "ID": 5,
+      "Groups_ID": 2,
+      "mail": "mail",
+      "password": "pass",
+      "FIO": "Alex Alex1 Alex2",
+      "grade_book_number": "d-234"
+    }
+  ],
+  "groups": [
+    {
+      "ID": 1,
+      "name_groups": "pks-29",
+      "schedule": {
+        "dayArrayList": [
+          {
+            "day_of_week": "Mon",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Tue",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Wen",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Thu",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Fri",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Sat",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Sun",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "ID": 2,
+      "name_groups": "d-30",
+      "schedule": {
+        "dayArrayList": [
+          {
+            "day_of_week": "Mon",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Tue",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Wen",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Thu",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Fri",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Sat",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          },
+          {
+            "day_of_week": "Sun",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 2,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 3,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 4,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 5,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 6,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              },
+              {
+                "number_pairs": 7,
+                "name_things": "",
+                "teacher_name": "",
+                "audience": ""
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
