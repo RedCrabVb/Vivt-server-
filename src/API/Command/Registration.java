@@ -10,6 +10,6 @@ public class Registration implements Command {
         String login = json.get("login").getAsString();
         String password = json.get("password").getAsString();
         client.clientInfo.setIsRealAccount(login, password);
-        return  CreationJson.message("registration", client.clientInfo.isAuthorized() + "");
+        return  CreationJson.data(client.clientInfo.isAuthorized() + "");
     }
 }

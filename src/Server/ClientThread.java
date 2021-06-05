@@ -44,7 +44,7 @@ public class ClientThread extends Thread {
     }
 
     private void downService(String reason) {
-        JsonObject reasonDisconnect = CreationJson.message("downService", reason);
+        JsonObject reasonDisconnect = CreationJson.templateData("downService", CreationJson.data(reason));
 
         dataTransfer.sendJson(reasonDisconnect.toString());
         dataTransfer.close();
