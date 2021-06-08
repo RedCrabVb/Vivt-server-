@@ -6,8 +6,7 @@
   "portParameterDB": "3306",
   "serverNameDB": "localhost",
   "databaseNameParameterDB": "VivtDB",
-  "versionProgram": "0.4",
-  "serverPort": 7000,
+  "serverPort": 8080,
   "logConfPath": "Log.config",
   "configPath": "Config.json"
 }

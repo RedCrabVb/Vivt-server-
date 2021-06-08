@@ -89,9 +89,9 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"test",
+                        "teacher_name":test"",
+                        "audience":"32"
                      },
                      {
                         "number_pairs":2,
@@ -107,9 +107,9 @@
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"Tue",
+                        "teacher_name":"test3",
+                        "audience":"567"
                      },
                      {
                         "number_pairs":5,
@@ -136,9 +136,9 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"УП.04.01 Учебная практика",
+                        "teacher_name":"Масалаб Надежда Михайловна",
+                        "audience":"234"
                      },
                      {
                         "number_pairs":2,
@@ -154,9 +154,9 @@
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"Математика: алгебра, начала математического анализа, геометрия",
+                        "teacher_name":"Курочкина Светлана Викторовна",
+                        "audience":"707"
                      },
                      {
                         "number_pairs":5,
@@ -183,9 +183,9 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"Физика",
+                        "teacher_name":"Беляева Елена Вадимовна",
+                        "audience":"643"
                      },
                      {
                         "number_pairs":2,
@@ -236,9 +236,9 @@
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"Основы безопасности жизнедеятельности",
+                        "teacher_name":"Спицын Алексей Иванович",
+                        "audience":"803"
                      },
                      {
                         "number_pairs":3,
@@ -277,9 +277,9 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"Обществознание (включая экономику и право)",
+                        "teacher_name":"Востроилов Илья Олегович",
+                        "audience":"234"
                      },
                      {
                         "number_pairs":2,
@@ -301,15 +301,15 @@
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"Информационные технологии",
+                        "teacher_name":"Резникова Виктория Юрьевна",
+                        "audience":"800"
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"Информационные технологии",
+                        "teacher_name":"Резникова Виктория Юрьевна",
+                        "audience":"800"
                      },
                      {
                         "number_pairs":7,
@@ -324,9 +324,9 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"test Sat day",
+                        "teacher_name":"Sat",
+                        "audience":"0"
                      },
                      {
                         "number_pairs":2,
@@ -371,9 +371,9 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "name_things":"test sun day",
+                        "teacher_name":"test",
+                        "audience":"3434"
                      },
                      {
                         "number_pairs":2,

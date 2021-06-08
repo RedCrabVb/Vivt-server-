@@ -25,14 +25,14 @@ import java.util.logging.Level;
  * Creates streams for new customers, stores some important objects
  */
 public class Server {
-    private static ServerSocket serverSocket;
+    private static HttpServer server;
     private static Boolean isServerRun = true;
 
     protected static LinkedList<ClientInfo> serverList = new LinkedList<>();
     public static SwitchCommand switchCommand = new SwitchCommand();
     public static DataBase dataBase;
 
-    public Server(ServerSocket serverSocket) throws Exception {
+    public Server(int port) throws Exception {
         Server.switchCommand.register("registration", new Registration());
         Server.switchCommand.register("person data", new PersonData());
         Server.switchCommand.register("message", new Message());
@@ -41,7 +41,7 @@ public class Server {
 
         Server.dataBase = Config.databaseCreate(Config.getInstance());
 
-        Server.serverSocket = serverSocket;
+        server = HttpServer.create(new InetSocketAddress(port), 0);
         Server.run();
     }
 
@@ -57,23 +57,20 @@ public class Server {
         return null;
     }
 
-    private static void run() {
-        try {
-            ClientInfo clientTestApi = new ClientInfo();
-            clientTestApi.setIsRealAccount("mail", "pass");
-            clientTestApi.setToken("test");
-            serverList.add(clientTestApi);
+    private static void run() throws IOException {
+        ClientInfo clientTestApi = new ClientInfo();
+        clientTestApi.setIsRealAccount("mail", "pass");
+        clientTestApi.setToken("test");
+        serverList.add(clientTestApi);
 
-            ServerControl.LOGGER.log(Level.INFO, "Server start " + new Date().toString());
-            HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
-            server.createContext("/api", new Handler());
-            server.setExecutor(null); // creates a default executor
-            server.start();
-        } catch (Exception e) {
-            ServerControl.LOGGER.log(Level.WARNING, "The server crashes when adding a client " + e);
-        } finally {
-            ServerControl.LOGGER.log(Level.INFO, "Server stop " + new Date().toString());
-        }
+        server.createContext("/api", new Handler());
+        server.setExecutor(null); // creates a default executor
+        server.start();
+    }
+
+    public static void shutdowns() {
+        server.stop(1);
+        ServerControl.LOGGER.log(Level.INFO, "Server stop " + new Date().toString());
     }
 
     static class Handler implements HttpHandler {
@@ -84,6 +81,7 @@ public class Server {
             Map<String, String> params = queryToMap(exchange.getRequestURI().getQuery());
             String token = params.get("token");
             JsonObject json = JsonParser.parseString(params.get("json")).getAsJsonObject();
+
             switchCommand.execute(token, json);
 
             String response = switchCommand.execute(token, json).toString();

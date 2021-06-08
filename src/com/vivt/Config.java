@@ -25,7 +25,6 @@ public class Config {
     private String portParameterDB = "";
     private String serverNameDB = "";
     private String databaseNameParameterDB = "";
-    private String versionProgram = "0.4";
     private int serverPort = 0;
 
     private String logConfPath = "";
