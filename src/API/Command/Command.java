@@ -1,8 +1,8 @@
 package API.Command;
 
-import Server.ClientThread;
+import DataBase.ClientInfo;
 import com.google.gson.JsonObject;
 
 public interface Command {
-    JsonObject execute(ClientThread client, JsonObject json) throws Exception;
+    JsonObject execute(ClientInfo client, JsonObject json) throws Exception;
 }

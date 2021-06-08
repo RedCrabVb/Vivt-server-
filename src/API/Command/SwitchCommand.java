@@ -1,12 +1,12 @@
 package API.Command;
 
 import DataBase.CreationJson;
-import Server.ClientThread;
 import Server.ServerControl;
 import com.google.gson.JsonObject;
 
 import java.util.HashMap;
 import java.util.logging.Level;
+import Server.Server;
 
 /**
  * Command pattern
@@ -22,7 +22,7 @@ public class SwitchCommand {
         commandMap.put(commandName, command);
     }
 
-    public void execute(ClientThread client, JsonObject json) {
+    public JsonObject execute(String token, JsonObject json) {
         String commandJs = json.get("header").getAsString();
         Command commandObj = commandMap.get(commandJs);
 
@@ -31,10 +31,12 @@ public class SwitchCommand {
         }
 
         try {
-            JsonObject jsonResponse = commandObj.execute(client, json);
-            client.sendMessage(CreationJson.templateData(commandJs, jsonResponse));
+            JsonObject jsonResponse = commandObj.execute(Server.getClient(token), json);
+            return CreationJson.templateData(commandJs, jsonResponse);
         } catch (Exception e) {
             ServerControl.LOGGER.log(Level.INFO, "Error: " + e.toString());
         }
+
+        return json;
     }
 }

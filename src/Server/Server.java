@@ -3,12 +3,22 @@ package Server;
 import API.Command.*;
 import DataBase.DataBase;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.mysql.cj.xdevapi.Client;
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
 import com.vivt.Config;
+import DataBase.ClientInfo;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.*;
+import java.util.concurrent.Executor;
 import java.util.logging.Level;
 
 /**
@@ -18,7 +28,7 @@ public class Server {
     private static ServerSocket serverSocket;
     private static Boolean isServerRun = true;
 
-    protected static LinkedList<ClientThread> serverList = new LinkedList<>();
+    protected static LinkedList<ClientInfo> serverList = new LinkedList<>();
     public static SwitchCommand switchCommand = new SwitchCommand();
     public static DataBase dataBase;
 
@@ -28,7 +38,6 @@ public class Server {
         Server.switchCommand.register("message", new Message());
         Server.switchCommand.register("news", new News());
         Server.switchCommand.register("schedule", new Schedule());
-        Server.switchCommand.register("null", new CloseConnection());
 
         Server.dataBase = Config.databaseCreate(Config.getInstance());
 
@@ -36,27 +45,71 @@ public class Server {
         Server.run();
     }
 
-    public static void shutdowns() throws IOException {
-        for (ClientThread ct : serverList) {
-            ct.clientInfo.setReasonDownService("shutdowns server");
-            ct.interrupt();
+    public static ClientInfo getClient(String token) {
+        for (ClientInfo client : serverList) {
+            if (client.getToken().equals(token)) { ;
+                return client;
+            } else {
+                System.out.println(client.getToken());
+            }
         }
 
-        serverSocket.close();
-        isServerRun = false;
+        return null;
     }
 
     private static void run() {
         try {
+            ClientInfo clientTestApi = new ClientInfo();
+            clientTestApi.setIsRealAccount("mail", "pass");
+            clientTestApi.setToken("test");
+            serverList.add(clientTestApi);
+
             ServerControl.LOGGER.log(Level.INFO, "Server start " + new Date().toString());
-            while (isServerRun) {
-                Socket socket = serverSocket.accept();
-                serverList.add(new ClientThread(socket));
-            }
+            HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+            server.createContext("/api", new Handler());
+            server.setExecutor(null); // creates a default executor
+            server.start();
         } catch (Exception e) {
             ServerControl.LOGGER.log(Level.WARNING, "The server crashes when adding a client " + e);
         } finally {
             ServerControl.LOGGER.log(Level.INFO, "Server stop " + new Date().toString());
         }
+    }
+
+    static class Handler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            ServerControl.LOGGER.log(Level.INFO, "get url: " + exchange.getRequestURI().getQuery());
+
+            Map<String, String> params = queryToMap(exchange.getRequestURI().getQuery());
+            String token = params.get("token");
+            JsonObject json = JsonParser.parseString(params.get("json")).getAsJsonObject();
+            switchCommand.execute(token, json);
+
+            String response = switchCommand.execute(token, json).toString();
+            exchange.sendResponseHeaders(200, response.length());
+            OutputStream os = exchange.getResponseBody();
+            os.write(response.getBytes());
+            os.close();
+
+            ServerControl.LOGGER.log(Level.INFO, "get json: " + params.get("json"));
+            ServerControl.LOGGER.log(Level.INFO, "send json: " + response);
+        }
+    }
+
+    public static Map<String, String> queryToMap(String query) {
+        if(query == null) {
+            return null;
+        }
+        Map<String, String> result = new HashMap<>();
+        for (String param : query.split("&")) {
+            String[] entry = param.split("=");
+            if (entry.length > 1) {
+                result.put(entry[0], entry[1]);
+            }else{
+                result.put(entry[0], "");
+            }
+        }
+        return result;
     }
 }

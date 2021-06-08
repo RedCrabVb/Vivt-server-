@@ -59,7 +59,7 @@ public class ServerControl extends Thread {
                         System.out.println(_help);
                         break;
                     case shutdowns:
-                        Server.shutdowns();
+                        //Server.shutdowns();
                         return;
                     default:
                         System.out.println("What does this command mean?");
