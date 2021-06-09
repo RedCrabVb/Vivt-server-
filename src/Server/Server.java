@@ -34,7 +34,7 @@ public class Server {
 
     public Server(int port) throws Exception {
         Server.switchCommand.register("registration", new Registration());
-        Server.switchCommand.register("person data", new PersonData());
+        Server.switchCommand.register("person_data", new PersonData());
         Server.switchCommand.register("message", new Message());
         Server.switchCommand.register("news", new News());
         Server.switchCommand.register("schedule", new Schedule());
@@ -42,6 +42,7 @@ public class Server {
         Server.dataBase = Config.databaseCreate(Config.getInstance());
 
         server = HttpServer.create(new InetSocketAddress(port), 0);
+
         Server.run();
     }
 
@@ -79,7 +80,12 @@ public class Server {
             ServerControl.LOGGER.log(Level.INFO, "get url: " + exchange.getRequestURI().getQuery());
 
             Map<String, String> params = queryToMap(exchange.getRequestURI().getQuery());
-            String token = params.get("token");
+            String token;
+            try {
+                token = params.get("token");
+            } catch (Exception e) {
+                token = null;
+            }
             JsonObject json = JsonParser.parseString(params.get("json")).getAsJsonObject();
 
             switchCommand.execute(token, json);

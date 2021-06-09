@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 * The single-responsibility principle may be violated
 * */
 public class ServerControl extends Thread {
-    private static boolean showLog = true;
+    private static boolean showLog = false;
     private final String cls = "/cls",
             info = "/info", logShow = "/logShow", shutdowns = "/shutdowns",
             help = "/help";
@@ -30,6 +30,7 @@ public class ServerControl extends Thread {
             ignore.printStackTrace();
         }
 
+        LOGGER.setLevel(!showLog ? Level.OFF : Level.ALL);
         start();
     }
 
@@ -38,7 +39,7 @@ public class ServerControl extends Thread {
         String login;
 
         String _help = " /cls - clear terminal \n /logShow \n " +
-                "/info - server status information \n /shutdowns \n /help - it is reference";
+                "/info - server status information \n /shutdowns \n /help - it is reference\n";
         System.out.println(_help);
 
         while (true) {
