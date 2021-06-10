@@ -60,10 +60,10 @@
       },
       {
          "ID":5,
-         "Groups_ID":1,
+         "Groups_ID":2,
          "token":"f6114b3a-ae28-4667-b8bf-cc234defebdd",
          "mail":"gmail22",
-         "password":"wrq",
+         "password":"wrq123",
          "surname":"Владимирова",
          "name":"Ольга",
          "patronymic":"Викторовна",

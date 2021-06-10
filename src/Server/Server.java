@@ -15,11 +15,14 @@ import java.util.logging.Level;
  */
 public class Server {
     private static HttpServer server;
+    private static boolean isActive = false;
 
     public static DataBase dataBase;
 
     public Server(int port) throws Exception {
         Server.dataBase = Config.databaseCreate(Config.getInstance());
+
+        isActive = true;
 
         server = HttpServer.create(new InetSocketAddress(port), 0);
 
@@ -38,6 +41,11 @@ public class Server {
 
     public static void close() {
         server.stop(1);
+        isActive = false;
         ServerControl.LOGGER.log(Level.INFO, "Server stop " + new Date().toString());
+    }
+
+    public static boolean isActive() {
+        return isActive;
     }
 }

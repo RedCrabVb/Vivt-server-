@@ -2,7 +2,8 @@ package Server;
 
 import com.google.gson.JsonParser;
 import com.vivt.Main;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.jupiter.api.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ServerTest {
+    private static String token;
 
     /*
     * {"header":"registration","login":"mail","password":"pass"}
@@ -24,25 +26,60 @@ class ServerTest {
     * {"header":"message"}
     * {"header":"news"}
     * */
-    @Test
-    void server() throws Exception {
-        Main.main(new String[]{});
+    @BeforeEach
+    void serverStart() throws Exception {
 
-        String api = "api/authorization";
-        String jsonEnc =  URLEncoder.encode("login=mail&password=pass", StandardCharsets.UTF_8);
-        String jsonToken = sendInquiry(api, jsonEnc);
-        String token = JsonParser.parseString(jsonToken).getAsJsonObject().get("token").getAsString();
-        System.out.println(token);
-        System.out.println(jsonToken);
+        if(!Server.isActive()) {
+            Main.main(new String[]{});
+        }
+    }
 
+    @AfterEach
+    void endTest() throws Exception {
         Thread.sleep(500);//fix bug java, https://bugs.openjdk.java.net/browse/JDK-8214300
+    }
+
+    @Test
+    void serverAuthorizationTest() throws Exception {
+        String api = "api/authorization";
+        String paramEnc =  URLEncoder.encode(String.format("login=%s&password=%s", "mail", "pass"), StandardCharsets.UTF_8);
+        String jsonToken = sendInquiry(api, paramEnc);
+        this.token = JsonParser.parseString(jsonToken).getAsJsonObject().get("token").getAsString();
+
+        System.out.println("Json get: " + jsonToken);
+    }
+
+    @Test
+    void serverPersonDataGet() throws Exception {
+        String api = "api/news";
+        String result = sendInquiry(api, "");
+        System.out.println(result);
+    }
+
+    @Test
+    void serverSchedule() throws Exception {
+        String api = "api/schedule";
+        String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
+        String result = sendInquiry(api, paramEnc);
+
+        System.out.println("Json get: " + result);
+    }
+
+    @Test
+    void serverMessage() throws Exception {
+        String api = "api/message";
+        String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
+        String result = sendInquiry(api, paramEnc);
+
+        System.out.println("Json get: " + result);
     }
 
     private String sendInquiry(String api, String json) throws Exception {
         URL url = new URL(String.format("http://localhost:8080/%s?token=test&%s", api, json));
         HttpURLConnection connection = getResponseServer(url);
         String response = connectionResponseToString(connection);
-        System.out.println(url.toString());
+
+        System.out.println("URL: " + url.toString());
         return response;
     }
 
