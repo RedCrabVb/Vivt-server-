@@ -27,28 +27,20 @@ class ServerTest {
     void server() throws Exception {
         Main.main(new String[]{});
 
-        String jsonEnc5 =  URLEncoder.encode("{\"header\":\"registration\",\"login\":\"mail\",\"password\":\"pass\"}", StandardCharsets.UTF_8);
-        sendInquiry(jsonEnc5);
+        String api = "api/registration";
+        String jsonEnc =  URLEncoder.encode("login=mail&password=pass", StandardCharsets.UTF_8);
+        String res = sendInquiry(api, jsonEnc);
+        System.out.println(res);
 
-        String jsonEnc =  URLEncoder.encode("{\"header\":\"person_data\"}", StandardCharsets.UTF_8);
-        sendInquiry(jsonEnc);
-
-        String jsonEnc2 =  URLEncoder.encode("{\"header\":\"schedule\"}", StandardCharsets.UTF_8);
-        sendInquiry(jsonEnc2);
-
-        String jsonEnc3 =  URLEncoder.encode("{\"header\":\"message\"}", StandardCharsets.UTF_8);
-        sendInquiry(jsonEnc3);
-
-        String jsonEnc4 =  URLEncoder.encode("{\"header\":\"news\"}", StandardCharsets.UTF_8);
-        sendInquiry(jsonEnc4);
+        Thread.sleep(500);//fix bug java, https://bugs.openjdk.java.net/browse/JDK-8214300
     }
 
-    private void sendInquiry(String json) throws Exception {
-        URL url = new URL("http://localhost:8080/api?token=test&json=" + json);
+    private String sendInquiry(String api, String json) throws Exception {
+        URL url = new URL(String.format("http://localhost:8080/%s?token=test&%s", api, json));
         HttpURLConnection connection = getResponseServer(url);
         String response = connectionResponseToString(connection);
-        System.out.println(connection.getResponseCode());
-        System.out.println(response);
+        System.out.println(url.toString());
+        return response;
     }
 
     private HttpURLConnection getResponseServer(URL url) throws Exception {

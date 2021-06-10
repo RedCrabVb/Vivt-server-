@@ -4,9 +4,15 @@ import DataBase.ClientInfo;
 import Server.Server;
 import com.google.gson.JsonObject;
 
+import java.util.Map;
+
 public class PersonData implements  Command {
     @Override
-    public JsonObject execute(ClientInfo client, JsonObject json) throws Exception {
-        return Server.dataBase.personData(client.getID());
+    public JsonObject execute(ClientInfo client, Map<String, String> params) {
+        try {
+            return Server.dataBase.personData(client.getID());
+        } catch (Exception e) {
+            return new JsonObject();
+        }
     }
 }

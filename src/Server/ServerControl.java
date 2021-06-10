@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class ServerControl extends Thread {
     private static boolean showLog = false;
     private final String cls = "/cls",
-            info = "/info", logShow = "/logShow", shutdowns = "/shutdowns",
+            info = "/info", logShow = "/logShow", close = "/close",
             help = "/help";
 
     public static Logger LOGGER;
@@ -39,7 +39,7 @@ public class ServerControl extends Thread {
         String login;
 
         String _help = " /cls - clear terminal \n /logShow \n " +
-                "/info - server status information \n /shutdowns \n /help - it is reference\n";
+                "/info - server status information \n /close \n /help - it is reference\n";
         System.out.println(_help);
 
         while (true) {
@@ -59,8 +59,8 @@ public class ServerControl extends Thread {
                     case help:
                         System.out.println(_help);
                         break;
-                    case shutdowns:
-                        Server.shutdowns();
+                    case close:
+                        Server.close();
                         return;
                     default:
                         System.out.println("What does this command mean?");

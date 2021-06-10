@@ -23,7 +23,7 @@ public class SwitchCommand {
     }
 
     public JsonObject execute(String token, JsonObject json) {
-        String commandJs = json.get("header").getAsString();
+       /* String commandJs = json.get("header").getAsString();
         Command commandObj = commandMap.get(commandJs);
 
         if (commandObj == null) {
@@ -36,7 +36,7 @@ public class SwitchCommand {
         } catch (Exception e) {
             ServerControl.LOGGER.log(Level.INFO, "Error: " + e.toString());
         }
-
-        return json;
+        */
+        return null;
     }
 }
