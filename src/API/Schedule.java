@@ -1,6 +1,5 @@
-package API.Command;
+package API;
 
-import DataBase.ClientInfo;
 import Server.Server;
 import com.google.gson.JsonObject;
 
@@ -8,9 +7,9 @@ import java.util.Map;
 
 public class Schedule implements Command {
     @Override
-    public JsonObject execute(ClientInfo client, Map<String, String> params) {
+    public JsonObject execute(Map<String, String> params) {
         try {
-            return Server.dataBase.schedule(client.getID());
+            return Server.dataBase.schedule(HandlerAPI.getIDForParameters(params));
         } catch (Exception e) {
             return new JsonObject();
         }

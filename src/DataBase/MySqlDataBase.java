@@ -3,7 +3,6 @@ package DataBase;
 import Server.ServerControl;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.vivt.Config;
 
 import java.sql.*;
 import java.util.logging.Level;
@@ -11,6 +10,7 @@ import java.util.logging.Level;
 public class MySqlDataBase implements DataBase {
     private final Connection connects;
 
+    @Deprecated
     public MySqlDataBase(String serverName, String port, String databaseName, String userDB, String usersPasswordDB) throws SQLException {
         String url = String.format("jdbc:mysql://%s:%s/%s?allowPublicKeyRetrieval=true&useSSL=false",
                 serverName, port, databaseName);
@@ -20,24 +20,34 @@ public class MySqlDataBase implements DataBase {
 
 
     @Override
-    public int realAccount(String login, String password) {
-        int ID = -1;
+    public String authorization(String login, String password) {
+        String token = "";
         try {
-            String query = "SELECT ID FROM students WHERE mail = ? AND password = ?;";
+            String query = "SELECT ID, token FROM students WHERE mail = ? AND password = ?;";
             PreparedStatement st = connects.prepareStatement(query);
             st.setString(1, login);
             st.setString(2, password);
             ResultSet resultSet = st.executeQuery();
 
             if (resultSet.next()) {
-                ID = resultSet.getInt("ID");
+                token = resultSet.getString("token");
             }
         } catch (Exception e) {
             e.printStackTrace();
             ServerControl.LOGGER.log(Level.WARNING, "Error trying to get an account", e);
         }
 
-        return ID;
+        return token;
+    }
+
+    @Override
+    public JsonObject registration() {
+        return null;
+    }
+
+    @Override
+    public int getIDForToken(String token) {
+        return 0;
     }
 
     @Override

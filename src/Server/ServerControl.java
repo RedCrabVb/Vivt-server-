@@ -49,8 +49,8 @@ public class ServerControl extends Thread {
                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                         break;
                     case info:
-                        System.out.println("Active compounds: " + Server.serverList.size());
                         System.out.println("Active streams: " + Thread.getAllStackTraces().keySet().size());
+                        System.out.println("Memory: " + (Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory()));
                         break;
                     case logShow:
                         showLog = !showLog;

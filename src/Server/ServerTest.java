@@ -1,5 +1,6 @@
 package Server;
 
+import com.google.gson.JsonParser;
 import com.vivt.Main;
 import org.junit.jupiter.api.Test;
 
@@ -27,10 +28,12 @@ class ServerTest {
     void server() throws Exception {
         Main.main(new String[]{});
 
-        String api = "api/registration";
+        String api = "api/authorization";
         String jsonEnc =  URLEncoder.encode("login=mail&password=pass", StandardCharsets.UTF_8);
-        String res = sendInquiry(api, jsonEnc);
-        System.out.println(res);
+        String jsonToken = sendInquiry(api, jsonEnc);
+        String token = JsonParser.parseString(jsonToken).getAsJsonObject().get("token").getAsString();
+        System.out.println(token);
+        System.out.println(jsonToken);
 
         Thread.sleep(500);//fix bug java, https://bugs.openjdk.java.net/browse/JDK-8214300
     }

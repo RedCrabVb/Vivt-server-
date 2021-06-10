@@ -1,13 +1,13 @@
 {
    "news":[
       {
-         "ID":3,
+         "ID":1,
          "name_news":"None_name",
          "text_news":"None_text",
          "img_path":"./img.png"
       },
       {
-         "ID":4,
+         "ID":2,
          "name_news":"None_name",
          "text_news":"None_text",
          "img_path":"./img.png"
@@ -17,42 +17,110 @@
       {
          "ID":1,
          "Groups_ID":1,
+         "token":"9848e66d-4d0a-44d4-a486-9d2ef563e1e7",
          "mail":"mail",
          "password":"pass",
-         "FIO":"Alex Alex1 Alex2",
+         "surname":"Иванов",
+         "name":"Иван",
+         "patronymic":"Иванович",
          "grade_book_number":"pks-234"
       },
       {
          "ID":2,
          "Groups_ID":1,
+         "token":"c540fdca-1a9f-45b8-96ce-d9e2d82a0742",
          "mail":"gmail",
-         "password":"pass234",
-         "FIO":"Pasha Pasha1 Pasha2",
-         "grade_book_number":"pks-235"
+         "password":"wrq",
+         "surname":"Сергей",
+         "name":"Федоров",
+         "patronymic":"Федорович",
+         "grade_book_number":"pks-234"
       },
       {
          "ID":3,
          "Groups_ID":1,
-         "mail":"ymail@mail.com",
-         "password":"wrq",
-         "FIO":"Lera Lera1 Lera2",
-         "grade_book_number":"pks-236"
+         "token":"fa4d48e9-ce13-43c4-b12b-4d153aab3e6b",
+         "mail":"ymail@mail",
+         "password":"wrq123",
+         "surname":"Карсева",
+         "name":"Полина",
+         "patronymic":"Алексеевна",
+         "grade_book_number":"pks-234"
       },
       {
          "ID":4,
          "Groups_ID":1,
-         "mail":"gmail",
-         "password":"234",
-         "FIO":"Ruslan Ruslan1 Ruslan2",
-         "grade_book_number":"pks-237"
+         "token":"eb8f9ad2-efce-41c1-a53b-d070526fce9e",
+         "mail":"gmail22",
+         "password":"wrq",
+         "surname":"Логинов",
+         "name":"Сергей",
+         "patronymic":"Николаевич",
+         "grade_book_number":"pks-234"
       },
       {
          "ID":5,
-         "Groups_ID":2,
-         "mail":"pass",
-         "password":"pass",
-         "FIO":"Alex Alex1 Alex2",
-         "grade_book_number":"d-234"
+         "Groups_ID":1,
+         "token":"f6114b3a-ae28-4667-b8bf-cc234defebdd",
+         "mail":"gmail22",
+         "password":"wrq",
+         "surname":"Владимирова",
+         "name":"Ольга",
+         "patronymic":"Викторовна",
+         "grade_book_number":"at-028"
+      }
+   ],
+   "teachers":[
+      {
+         "ID":1,
+         "surname":"",
+         "name":"",
+         "patronymic":""
+      },
+      {
+         "ID":2,
+         "surname":"Карсева",
+         "name":"Юлия",
+         "patronymic":"Иванова"
+      },
+      {
+         "ID":3,
+         "surname":"Ардаков",
+         "name":"Игорь",
+         "patronymic":"Герасимович"
+      },
+      {
+         "ID":4,
+         "surname":"Гришина",
+         "name":"Ольга",
+         "patronymic":"Константиновна"
+      }
+   ],
+   "things":[
+      {
+         "ID":1,
+         "type_lesson":"",
+         "name_things":""
+      },
+      {
+         "ID":2,
+         "type_lesson":"L",
+         "name_things":"Физическая культура"
+      },
+      {
+         "ID":3,
+         "type_lesson":"P",
+         "name_things":"Технические средства информатизации"
+      },
+      {
+         "ID":4,
+         "type_lesson":"L",
+         "name_things":"Иностранный язык"
+      },
+      {
+         "ID":5,
+         "type_lesson":"P",
+         "name_things":"Операционные системы"
       }
    ],
    "messages":[
@@ -61,27 +129,27 @@
          "recipient":1,
          "from_whom":2,
          "header":"Main",
-         "text":"bal_bal_bla 1 to 2"
+         "text":"bal_bal_bla 12"
       },
       {
          "ID":2,
          "recipient":1,
          "from_whom":5,
          "header":"LK",
-         "text":"bal_bal_bla 2 to 5"
+         "text":"bal_bal_bla 15"
       },
       {
          "ID":3,
          "recipient":2,
          "from_whom":3,
          "header":"LK",
-         "text":"bal_bal_bla 2 to 3"
+         "text":"bal_bal_bla 23"
       }
    ],
    "groups":[
       {
          "ID":1,
-         "name_groups":"pks-29",
+         "name_groups":"pks-029",
          "schedule":{
             "dayArrayList":[
                {
@@ -89,45 +157,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"test",
-                        "teacher_name":test"",
-                        "audience":"32"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"Tue",
-                        "teacher_name":"test3",
-                        "audience":"567"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -136,45 +204,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"УП.04.01 Учебная практика",
-                        "teacher_name":"Масалаб Надежда Михайловна",
-                        "audience":"234"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"Математика: алгебра, начала математического анализа, геометрия",
-                        "teacher_name":"Курочкина Светлана Викторовна",
-                        "audience":"707"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -183,45 +251,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"Физика",
-                        "teacher_name":"Беляева Елена Вадимовна",
-                        "audience":"643"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -230,45 +298,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"Основы безопасности жизнедеятельности",
-                        "teacher_name":"Спицын Алексей Иванович",
-                        "audience":"803"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -277,45 +345,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"Обществознание (включая экономику и право)",
-                        "teacher_name":"Востроилов Илья Олегович",
-                        "audience":"234"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"Информационные технологии",
-                        "teacher_name":"Резникова Виктория Юрьевна",
-                        "audience":"800"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"Информационные технологии",
-                        "teacher_name":"Резникова Виктория Юрьевна",
-                        "audience":"800"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -324,45 +392,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"test Sat day",
-                        "teacher_name":"Sat",
-                        "audience":"0"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -371,45 +439,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"test sun day",
-                        "teacher_name":"test",
-                        "audience":"3434"
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                }
@@ -418,7 +486,7 @@
       },
       {
          "ID":2,
-         "name_groups":"d-30",
+         "name_groups":"at-028",
          "schedule":{
             "dayArrayList":[
                {
@@ -426,45 +494,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -473,45 +541,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -520,45 +588,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -567,45 +635,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -614,45 +682,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -661,45 +729,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                },
@@ -708,45 +776,45 @@
                   "thingsArrayList":[
                      {
                         "number_pairs":1,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":2,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":3,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":4,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":5,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":6,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      },
                      {
                         "number_pairs":7,
-                        "name_things":"",
-                        "teacher_name":"",
-                        "audience":""
+                        "teacher_ID":0,
+                        "audience":"",
+                        "things_ID":0
                      }
                   ]
                }

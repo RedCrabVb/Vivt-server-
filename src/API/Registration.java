@@ -1,19 +1,20 @@
-package API.Command;
+package API;
 
-import DataBase.ClientInfo;
 import DataBase.CreationJson;
+import Server.Server;
 import com.google.gson.JsonObject;
 
 import java.util.Map;
 
 public class Registration implements Command {
     @Override
-    public JsonObject execute(ClientInfo client, Map<String, String> params) {
+    public JsonObject execute(Map<String, String> params) {
         try {
             String login = params.get("login");
             String password = params.get("password");
-            client.setIsRealAccount(login, password);
-            return CreationJson.data(client.isAuthorized() + "");
+
+            String token = Server.dataBase.authorization(login, password);
+            return CreationJson.data("token", token);
         } catch (Exception e) {
             return new JsonObject();
         }

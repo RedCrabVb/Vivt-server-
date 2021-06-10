@@ -5,7 +5,11 @@ import com.google.gson.JsonObject;
 import java.sql.SQLException;
 
 public interface DataBase {
-    int realAccount(String login, String password);
+    String authorization(String login, String password);
+    JsonObject registration();
+
+    int getIDForToken(String token);
+
     JsonObject personData(int ID) throws SQLException;
     JsonObject schedule(int ID) throws SQLException;
     JsonObject news() throws SQLException;

@@ -1,31 +1,40 @@
 package DataBase;
 
 import com.google.gson.*;
-import com.vivt.Config;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class JsonDataBase implements DataBase {
-    private DataBaseJson dataBaseJson;
+    private DataInJsonFormat dataInJsonFormat;
     private Gson gson = new Gson();
 
-    private DataBaseJson init() {
-        DataBaseJson dataBase = new DataBaseJson();
+    private DataInJsonFormat init() {
+        DataInJsonFormat dataBase = new DataInJsonFormat();
 
-        Group newGroup = new Group("pks-29");
-        Group newGroup1 = new Group("d-30");
+        Group newGroup = new Group("pks-029");
+        Group newGroup1 = new Group("at-028");
 
-        Student student = new Student(newGroup.getID(), "mail", "pass", "Alex Alex1 Alex2", "pks-234");
-        Student student2 = new Student(newGroup.getID(), "gmail", "pass234", "Pasha Pasha1 Pasha2", "pks-235");
-        Student student3 = new Student(newGroup.getID(), "ymail@mail.com", "wrq", "Lera Lera1 Lera2", "pks-236");
-        Student student4 = new Student(newGroup.getID(), "gmail", "234", "Ruslan Ruslan1 Ruslan2", "pks-237");
-        Student student5 = new Student(newGroup1.getID(), "pass", "pass", "Alex Alex1 Alex2", "d-234");
+        Student student = new Student(newGroup.getID(), "mail", "pass", "Иванов", "Иван", "Иванович", "pks-234");
+        Student student2 =  new Student(newGroup.getID(), "gmail", "wrq", "Сергей", "Федоров", "Федорович", "pks-234");
+        Student student3 =  new Student(newGroup.getID(), "ymail@mail", "wrq123", "Карсева", "Полина", "Алексеевна", "pks-234");
+        Student student4 =  new Student(newGroup.getID(), "gmail22", "wrq", "Логинов", "Сергей", "Николаевич", "pks-234");
+        Student student5 =  new Student(newGroup.getID(), "gmail22", "wrq", "Владимирова", "Ольга", "Викторовна", "at-028");
+
+        dataBase.teachers.add(new Teacher("", "", ""));
+        dataBase.teachers.add(new Teacher("Карсева", "Юлия", "Иванова"));
+        dataBase.teachers.add(new Teacher("Ардаков", "Игорь", "Герасимович"));
+        dataBase.teachers.add(new Teacher("Гришина", "Ольга", "Константиновна"));
+
+        dataBase.things.add(new Thing("", ""));
+        dataBase.things.add(new Thing("L", "Физическая культура"));
+        dataBase.things.add(new Thing("P", "Технические средства информатизации"));
+        dataBase.things.add(new Thing("L", "Иностранный язык"));
+        dataBase.things.add(new Thing("P", "Операционные системы"));
+
 
         dataBase.students.add(student);
         dataBase.students.add(student2);
@@ -46,23 +55,43 @@ public class JsonDataBase implements DataBase {
         return dataBase;
     }
 
+    private void save() {
+        System.out.println(gson.toJson(dataInJsonFormat));
+    }
+
     public JsonDataBase(String pathJsonDataBase) throws FileNotFoundException {
-        dataBaseJson = gson.fromJson(new FileReader(pathJsonDataBase), DataBaseJson.class);
+        dataInJsonFormat = gson.fromJson(new FileReader(pathJsonDataBase), DataInJsonFormat.class);
     }
     @Override
-    public int realAccount(String login, String password) {
-        for(Student elm : dataBaseJson.students) {
+    public String authorization(String login, String password) {
+        for(Student elm : dataInJsonFormat.students) {
             if (elm.equalsLoginPass(login, password)) {
-                return elm.getID();
+                return elm.getToken();
             }
         }
 
+        return "";
+    }
+
+    @Override
+    public JsonObject registration() {
+        return new JsonObject();
+    }
+
+    @Override
+    public int getIDForToken(String token) {
+        for(Student elm : dataInJsonFormat.students) {
+            if (elm.getToken().equals(token)) {
+                return elm.getID();
+            }
+        }
+        
         return -1;
     }
 
     @Override
     public JsonObject personData(int ID) throws SQLException {
-        for(Student elm : dataBaseJson.students) {
+        for(Student elm : dataInJsonFormat.students) {
             if (elm.getID() == ID) {
                 String jsonStr = gson.toJson(elm);
                 return JsonParser.parseString(jsonStr).getAsJsonObject();
@@ -76,7 +105,7 @@ public class JsonDataBase implements DataBase {
     public JsonObject schedule(int ID) throws SQLException {
         JsonObject result = new JsonObject();
         int groups_ID = 0;
-        for (Student elm : dataBaseJson.students) {
+        for (Student elm : dataInJsonFormat.students) {
             if (elm.getID() == ID) {
                 groups_ID = elm.getGroups_ID();
                 break;
@@ -84,7 +113,7 @@ public class JsonDataBase implements DataBase {
         }
 
         JsonElement jsonSchedule = null;
-        for (Group group : dataBaseJson.groups) {
+        for (Group group : dataInJsonFormat.groups) {
             if (group.getID() == groups_ID) {
                 jsonSchedule = JsonParser.parseString(gson.toJson(group));
                 break;
@@ -97,7 +126,7 @@ public class JsonDataBase implements DataBase {
 
     @Override
     public JsonObject news() throws SQLException {
-        String jsonStr =  gson.toJson(dataBaseJson.news);
+        String jsonStr =  gson.toJson(dataInJsonFormat.news);
         var jsonArrNews = JsonParser.parseString(jsonStr).getAsJsonArray();
         JsonObject newJsonObj = new JsonObject();
         newJsonObj.add("news", jsonArrNews);
@@ -113,7 +142,7 @@ public class JsonDataBase implements DataBase {
     @Override
     public JsonObject message(int ID) throws SQLException {
         JsonArray jsonMsg = new JsonArray();
-        for (Message msg : dataBaseJson.messages) {
+        for (Message msg : dataInJsonFormat.messages) {
             if (msg.getID() == ID) {
                 jsonMsg.add(JsonParser.parseString(gson.toJson(msg)));
             }
@@ -143,9 +172,11 @@ public class JsonDataBase implements DataBase {
 
 
 
-class DataBaseJson {
+class DataInJsonFormat {
     public ArrayList<News> news = new ArrayList<>();
     public ArrayList<Student> students = new ArrayList<>();
+    public ArrayList<Teacher> teachers = new ArrayList<>();
+    public ArrayList<Thing> things = new ArrayList<>();
     public ArrayList<Message> messages = new ArrayList<>();
     public ArrayList<Group> groups = new ArrayList<>();
 }
@@ -199,49 +230,95 @@ class Schedule {
 
 class Day {
     private String day_of_week;
-    private ArrayList<Thing> thingsArrayList = new ArrayList<>();
+    private ArrayList<Lesson> thingsArrayList = new ArrayList<>();
 
     public Day(String day_of_week) {
         this.day_of_week = day_of_week;
 
-        String name_things = "";
-        String teacher_name = "";
         String audience = "";
         for (int i = 1; i < 8; i++) {
-            thingsArrayList.add(new Thing(i, name_things, teacher_name, audience));
+            thingsArrayList.add(new Lesson(i, 0, audience, 0));
         }
     }
 }
 
-class Thing {
+class Lesson {
     private int number_pairs;
-    private String name_things;
-    private String teacher_name;
+    private int teacher_ID;
     private String audience;
+    private int things_ID;
 
-    public Thing(int number_pairs, String name_things, String teacher_name, String audience) {
+    public Lesson(int number_pairs, int teacher_ID, String audience, int things_ID) {
         this.number_pairs = number_pairs;
-        this.name_things = name_things;
-        this.teacher_name = teacher_name;
+        this.teacher_ID = teacher_ID;
         this.audience = audience;
+        this.things_ID = things_ID;
     }
+}
+
+class Teacher {
+    private static final AtomicInteger count = new AtomicInteger(0);
+    private int ID;
+    private String surname;
+    private String name;
+    private String patronymic;
+
+    Teacher(String surname, String name, String patronymics) {
+        this.ID = count.incrementAndGet();
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymics;
+    }
+
+    public String getFullName() {
+        return surname + " " + name + " " + patronymic;
+    }
+
+    public int getID() {
+        return ID;
+    }
+}
+
+class Thing {
+    private static final AtomicInteger count = new AtomicInteger(0);
+    private int ID;
+    private String type_lesson;
+    private String name_things;
+
+    Thing(String type_lesson, String name_things) {
+        this.ID = count.incrementAndGet();
+        this.name_things = name_things;
+        this.type_lesson = type_lesson;
+    }
+
+    public int getID() {return  ID;}
 }
 
 class Student {
     private static final AtomicInteger count = new AtomicInteger(0);
+    private static List<String> tokenList = new ArrayList<>();
     private int ID;
     private int Groups_ID;
+    private String token;
+
     private String mail;
     private String password;
-    private String FIO;
+
+    private String surname;
+    private String name;
+    private String patronymic;
+
     private String grade_book_number;
 
-    public Student(int Groups_ID, String mail, String password, String FIO, String grade_book_number) {
+    public Student(int Groups_ID, String mail, String password, String surname, String name, String patronymics, String grade_book_number) {
         this.Groups_ID = Groups_ID;
         this.ID = count.incrementAndGet();
+        this.token = generatedToken();
         this.mail = mail;
         this.password = password;
-        this.FIO = FIO;
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymics;
         this.grade_book_number = grade_book_number;
     }
 
@@ -254,6 +331,20 @@ class Student {
     }
 
     public int getGroups_ID() {return this.Groups_ID;}
+
+    private String generatedToken() {
+        String generatedString = "test";
+        do {
+            generatedString = UUID.randomUUID().toString();
+        } while (tokenList.contains(generatedString));
+        tokenList.add(generatedString);
+
+        return generatedString;
+    }
+
+    public String getToken() {
+        return token;
+    }
 }
 
 /*****/

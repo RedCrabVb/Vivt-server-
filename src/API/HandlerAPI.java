@@ -1,6 +1,5 @@
-package API.Command;
+package API;
 
-import DataBase.ClientInfo;
 import Server.ServerControl;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -24,14 +23,8 @@ public class HandlerAPI implements HttpHandler {
         ServerControl.LOGGER.log(Level.INFO, "get url: " + exchange.getRequestURI().getQuery());
 
         Map<String, String> params = queryToMap(exchange.getRequestURI().getQuery());
-        String token = "";
-        if (params.containsKey("token")) {
-            token = params.get("token");
-        }
 
-        ClientInfo clientInfo = Server.getClient(params.get("token"));
-
-        String response =  command.execute(clientInfo, params).toString();
+        String response =  command.execute(params).toString();
         exchange.sendResponseHeaders(200, response.length());
         OutputStream os = exchange.getResponseBody();
         os.write(response.getBytes());
@@ -55,5 +48,11 @@ public class HandlerAPI implements HttpHandler {
             }
         }
         return result;
+    }
+
+    public static int getIDForParameters(Map<String, String> params) {
+        String token = params.get("token");
+        int userID = Server.dataBase.getIDForToken(token);
+        return userID;
     }
 }
