@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public interface DataBase {
     String authorization(String login, String password);
-    JsonObject registration();
+    void registration(String name, String surname, String patronymic, String groups, String mail, String password);
 
     int getIDForToken(String token);
 

@@ -19,13 +19,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class ServerTest {
     private static String token;
 
-    /*
-    * {"header":"registration","login":"mail","password":"pass"}
-    * {"header":"person data"}
-    * {"header":"schedule"}
-    * {"header":"message"}
-    * {"header":"news"}
-    * */
     @BeforeEach
     void serverStart() throws Exception {
 
@@ -69,6 +62,24 @@ class ServerTest {
     void serverMessage() throws Exception {
         String api = "api/message";
         String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
+        String result = sendInquiry(api, paramEnc);
+
+        System.out.println("Json get: " + result);
+    }
+
+    @Test
+    void serverRegistration() throws Exception {
+        String api = "api/registration";
+
+        String name = "testName";
+        String surname = "testSurname";
+        String patronymic = "testPatronymic";
+        String groups = "pks-029";
+        String mail = "mail222";
+        String password = "asdf";
+        String params = String.format("name=%s&surname=%s&patronymic=%s&groups=%s&password=%s&mail=%s",
+                name, surname, patronymic, groups, password, mail);
+        String paramEnc = URLEncoder.encode(params, StandardCharsets.UTF_8);
         String result = sendInquiry(api, paramEnc);
 
         System.out.println("Json get: " + result);

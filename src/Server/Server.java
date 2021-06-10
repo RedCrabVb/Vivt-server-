@@ -34,7 +34,8 @@ public class Server {
         server.createContext("/api/person_data", new HandlerAPI(new PersonData()));
         server.createContext("/api/news", new HandlerAPI(new News()));
         server.createContext("/api/schedule", new HandlerAPI(new Schedule()));
-        server.createContext("/api/authorization", new HandlerAPI(new Registration()));
+        server.createContext("/api/authorization", new HandlerAPI(new Authorization()));
+        server.createContext("/api/registration", new HandlerAPI(new Registration()));
         server.setExecutor(null); // creates a default executor
         server.start();
     }

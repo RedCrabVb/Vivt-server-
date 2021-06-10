@@ -5,6 +5,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.sql.*;
+import java.util.Random;
 import java.util.logging.Level;
 
 public class MySqlDataBase implements DataBase {
@@ -41,8 +42,7 @@ public class MySqlDataBase implements DataBase {
     }
 
     @Override
-    public JsonObject registration() {
-        return null;
+    public void registration(String name, String surname, String patronymic, String groups, String mail, String password) {
     }
 
     @Override

@@ -74,8 +74,20 @@ public class JsonDataBase implements DataBase {
     }
 
     @Override
-    public JsonObject registration() {
-        return new JsonObject();
+    public void registration(String name, String surname, String patronymic, String groups, String mail, String password) {
+        Group groupThis = null;
+        for (Group group : dataInJsonFormat.groups) {
+            if (group.getName_groups().equals(groups)) {
+                groupThis = group;
+            }
+        }
+
+        int groups_ID = groupThis.getID();
+        String grab_book_number = groups + "2" + new Random().nextLong();
+        Student student = new Student(groups_ID, mail, password, surname,
+                name, patronymic, grab_book_number);
+
+        dataInJsonFormat.students.add(student);
     }
 
     @Override
@@ -215,6 +227,10 @@ class Group {
 
     public int getID() {
         return ID;
+    }
+
+    public String getName_groups() {
+        return name_groups;
     }
 }
 
