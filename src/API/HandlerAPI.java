@@ -1,6 +1,7 @@
 package API;
 
 import Server.ServerControl;
+import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -20,9 +21,12 @@ public class HandlerAPI implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        ServerControl.LOGGER.log(Level.INFO, "get url: " + exchange.getRequestURI().getQuery());
-
         Map<String, String> params = queryToMap(exchange.getRequestURI().getQuery());
+
+        Headers headers = exchange.getResponseHeaders();
+        headers.add("Access-Control-Allow-Headers","x-prototype-version,x-requested-with");
+        headers.add("Access-Control-Allow-Methods","GET,POST");
+        headers.add("Access-Control-Allow-Origin","*");
 
         String response =  command.execute(params).toString();
         exchange.sendResponseHeaders(200, response.length());
@@ -30,7 +34,7 @@ public class HandlerAPI implements HttpHandler {
         os.write(response.getBytes());
         os.close();
 
-        ServerControl.LOGGER.log(Level.INFO, "get json: " + params.get("json"));
+        ServerControl.LOGGER.log(Level.INFO, "get url: " + exchange.getRequestURI().getQuery());
         ServerControl.LOGGER.log(Level.INFO, "send json: " + response);
     }
 
