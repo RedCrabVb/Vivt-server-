@@ -29,6 +29,7 @@ public class JsonDataBase implements DataBase {
         dataBase.teachers.add(new Teacher("Ардаков", "Игорь", "Герасимович"));
         dataBase.teachers.add(new Teacher("Гришина", "Ольга", "Константиновна"));
 
+
         dataBase.things.add(new Thing("", ""));
         dataBase.things.add(new Thing("L", "Физическая культура"));
         dataBase.things.add(new Thing("P", "Технические средства информатизации"));
@@ -60,7 +61,9 @@ public class JsonDataBase implements DataBase {
     }
 
     public JsonDataBase(String pathJsonDataBase) throws FileNotFoundException {
+       // dataInJsonFormat = init();
         dataInJsonFormat = gson.fromJson(new FileReader(pathJsonDataBase), DataInJsonFormat.class);
+        //save();
     }
     @Override
     public String authorization(String login, String password) {
@@ -124,16 +127,15 @@ public class JsonDataBase implements DataBase {
             }
         }
 
-        JsonElement jsonSchedule = null;
+        JsonObject jsonSchedule = null;
         for (Group group : dataInJsonFormat.groups) {
             if (group.getID() == groups_ID) {
-                jsonSchedule = JsonParser.parseString(gson.toJson(group));
+                jsonSchedule = group.getSchedule().toJson(dataInJsonFormat);//JsonParser.parseString(gson.toJson(group));
                 break;
             }
         }
 
-        result.add("schedule", jsonSchedule);
-        return result;
+        return jsonSchedule;
     }
 
     @Override
@@ -191,6 +193,26 @@ class DataInJsonFormat {
     public ArrayList<Thing> things = new ArrayList<>();
     public ArrayList<Message> messages = new ArrayList<>();
     public ArrayList<Group> groups = new ArrayList<>();
+
+    public Thing getThings(int ID) {
+        for (Thing thing : things) {
+            if (thing.getID() == ID) {
+                return thing;
+            }
+        }
+
+        return  new Thing("D", "S");
+    }
+
+    public Teacher getTeacher(int ID) {
+        for (Teacher teacher : teachers) {
+            if (teacher.getID() == ID) {
+                return teacher;
+            }
+        }
+
+        return  new Teacher("", "", "");
+    }
 }
 
 /*****/
@@ -232,6 +254,10 @@ class Group {
     public String getName_groups() {
         return name_groups;
     }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
 }
 
 class Schedule {
@@ -241,6 +267,33 @@ class Schedule {
         for (String day : week) {
             dayArrayList.add(new Day(day));
         }
+    }
+
+    public JsonObject toJson(DataInJsonFormat dataBase) {
+        JsonArray jsonArr = JsonParser.parseString(new Gson().toJson(dayArrayList)).getAsJsonArray();
+
+        for (int i = 0; i < jsonArr.size(); i++) {
+            JsonArray jsonArr2 = jsonArr.get(i).getAsJsonObject().getAsJsonArray("thingsArrayList");
+            for (int j = 0; j < jsonArr2.size(); j++) {
+                int teacher_ID = jsonArr2.get(j).getAsJsonObject().get("teacher_ID").getAsInt();
+                int things_ID = jsonArr2.get(j).getAsJsonObject().get("things_ID").getAsInt();
+
+                jsonArr2.get(j).getAsJsonObject().remove("teacher_ID");
+                jsonArr2.get(j).getAsJsonObject().remove("things_ID");
+
+                jsonArr2.get(j).getAsJsonObject().addProperty("type", dataBase.getThings(things_ID).getType_lesson());
+                jsonArr2.get(j).getAsJsonObject().addProperty("things", dataBase.getThings(things_ID).getName_things());
+                jsonArr2.get(j).getAsJsonObject().addProperty("teacher", dataBase.getTeacher(teacher_ID).getFullName());
+
+
+                jsonArr2.get(j).getAsJsonObject().addProperty("name", "asdfasdf");
+            }
+        }
+
+        JsonObject jsonObj = new JsonObject();
+        jsonObj.add("schedule", jsonArr);
+
+        return jsonObj;
     }
 }
 
@@ -280,7 +333,7 @@ class Teacher {
     private String patronymic;
 
     Teacher(String surname, String name, String patronymics) {
-        this.ID = count.incrementAndGet();
+        this.ID = count.incrementAndGet() - 1;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymics;
@@ -302,12 +355,20 @@ class Thing {
     private String name_things;
 
     Thing(String type_lesson, String name_things) {
-        this.ID = count.incrementAndGet();
+        this.ID = count.incrementAndGet() - 1;
         this.name_things = name_things;
         this.type_lesson = type_lesson;
     }
 
     public int getID() {return  ID;}
+
+    public String getType_lesson() {
+        return type_lesson;
+    }
+
+    public String getName_things() {
+        return name_things;
+    }
 }
 
 class Student {

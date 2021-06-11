@@ -86,7 +86,7 @@ class ServerTest {
     }
 
     private String sendInquiry(String api, String json) throws Exception {
-        URL url = new URL(String.format("http://localhost:8080/%s?token=test&%s", api, json));
+        URL url = new URL(String.format("http://localhost:8080/%s?%s", api, json));
         HttpURLConnection connection = getResponseServer(url);
         String response = connectionResponseToString(connection);
 

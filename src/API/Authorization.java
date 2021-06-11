@@ -14,6 +14,7 @@ public class Authorization implements Command {
             String password = params.get("password");
 
             String token = Server.dataBase.authorization(login, password);
+
             return CreationJson.data("token", token);
         } catch (Exception e) {
             return new JsonObject();

@@ -1,6 +1,7 @@
 package API;
 
 import DataBase.CreationJson;
+import DataBase.DataBase;
 import Server.Server;
 import com.google.gson.JsonObject;
 
@@ -18,6 +19,7 @@ public class Registration implements Command {
             String login = params.get("mail");
             String password = params.get("password");
             String token = Server.dataBase.authorization(login, password);
+
             return CreationJson.data("token", token);
         } catch (Exception e) {
             return new JsonObject();
