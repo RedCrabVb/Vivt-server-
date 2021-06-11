@@ -3,7 +3,6 @@
 * [Connecting Gson in IntelliJ IDEA](http://blog.harrix.org/article/7348)
 * The application requires configs to work:
 	1. Config.json - for the application to work,
-	2. log.config - for data logging
 * It is advisable to run the program with parameters, otherwise, the default data will be used.
   Example: '-configPath Config.json'
 
@@ -17,25 +16,27 @@ and this process is very sloppy, so that in the future everything can change a l
 
 --------------
 # Сontract(API):
+* Authorization
 * Registration.
 * Get a list of all messages.
 * Get personalized data.
 * Get a class schedule.
 * Get academic achievement.
 * Get news feed.
-* Close connect
+* Send message
+* Push notifications
+* "Elínos"
 
 --------------
 # Architecture
 
 ## Server:
-* Command interface(API).
-* Database.
-* The server is waiting for a connection,
-  processing commands and interacting
-  with the database.
+* Command interface, GET inquiry(API).
+* Database(JSON).
 * Logging
 * Interface for interacting with the administrator
+* Server sends notifications
+* Work with tasks in lk | "Elínos"
 
 ## Client:
 * Client working with server API(Model)
