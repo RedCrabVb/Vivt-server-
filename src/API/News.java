@@ -8,11 +8,7 @@ import java.util.Map;
 public class News implements Command {
 
     @Override
-    public JsonObject execute(Map<String, String> params) {
-        try {
-            return Server.dataBase.news();
-        } catch (Exception e) {
-            return new JsonObject();
-        }
+    public JsonObject execute(Map<String, String> params) throws Exception {
+        return Server.dataBase.news();
     }
 }

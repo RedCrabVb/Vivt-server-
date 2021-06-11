@@ -21,6 +21,8 @@ public class HandlerAPI implements HttpHandler {
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
+        ServerControl.LOGGER.log(Level.INFO, "get url: " + exchange.getRequestURI().getQuery());
+
         Map<String, String> params = queryToMap(exchange.getRequestURI().getQuery());
 
         Headers headers = exchange.getResponseHeaders();
@@ -28,29 +30,23 @@ public class HandlerAPI implements HttpHandler {
         headers.add("Access-Control-Allow-Methods","GET,POST");
         headers.add("Access-Control-Allow-Origin","*");
 
-        String response =  command.execute(params).toString();
-        exchange.sendResponseHeaders(200, response.length());
-        OutputStream os = exchange.getResponseBody();
-
-        /*
-        * This piece of code often throws exceptions, json with a schedule is too large
-        * */
         try {
-            InputStream fos = new ByteArrayInputStream(response.getBytes(StandardCharsets.UTF_8));
+            String response = command.execute(params).toString();
+            exchange.sendResponseHeaders(200, response.getBytes(StandardCharsets.UTF_8).length);
 
-            byte[] byteArray = response.getBytes(StandardCharsets.UTF_8);
-            int bytesRead;
-            while (-1 != (bytesRead = fos.read(byteArray, 0, 1024))) {
-                os.write(byteArray, 0, bytesRead);
-            }
-        } catch (Exception e) {
+            OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes(StandardCharsets.UTF_8));
+            os.close();
+
+            ServerControl.LOGGER.log(Level.INFO, "send json: " + response);
+        } catch (Exception e) {
+            exchange.sendResponseHeaders(401, e.toString().getBytes(StandardCharsets.UTF_8).length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(e.toString().getBytes(StandardCharsets.UTF_8));
+            os.close();
+
+            ServerControl.LOGGER.log(Level.INFO, "send error: " + e.toString());
         }
-
-        os.close();
-
-        ServerControl.LOGGER.log(Level.INFO, "get url: " + exchange.getRequestURI().getQuery());
-        ServerControl.LOGGER.log(Level.INFO, "send json: " + response);
     }
 
     public static Map<String, String> queryToMap(String query) {

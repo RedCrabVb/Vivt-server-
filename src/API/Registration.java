@@ -9,20 +9,16 @@ import java.util.Map;
 
 public class Registration implements Command {
     @Override
-    public JsonObject execute(Map<String, String> params) {
-        try {
-            Server.dataBase.registration(params.get("name"), params.get("surname"),
-                    params.get("patronymic"), params.get("groups"),
-                    params.get("mail"), params.get("password"));
+    public JsonObject execute(Map<String, String> params) throws Exception {
+        Server.dataBase.registration(params.get("name"), params.get("surname"),
+                params.get("patronymic"), params.get("groups"),
+                params.get("mail"), params.get("password"));
 
 
-            String login = params.get("mail");
-            String password = params.get("password");
-            String token = Server.dataBase.authorization(login, password);
+        String login = params.get("mail");
+        String password = params.get("password");
+        String token = Server.dataBase.authorization(login, password);
 
-            return CreationJson.data("token", token);
-        } catch (Exception e) {
-            return new JsonObject();
-        }
+        return CreationJson.data("token", token);
     }
 }

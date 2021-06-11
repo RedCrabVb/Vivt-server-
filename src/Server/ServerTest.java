@@ -90,6 +90,8 @@ class ServerTest {
         HttpURLConnection connection = getResponseServer(url);
         String response = connectionResponseToString(connection);
 
+        assertEquals(200, connection.getResponseCode());
+
         System.out.println("URL: " + url.toString());
         return response;
     }

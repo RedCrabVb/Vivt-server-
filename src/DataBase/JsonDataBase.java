@@ -66,14 +66,14 @@ public class JsonDataBase implements DataBase {
         //save();
     }
     @Override
-    public String authorization(String login, String password) {
+    public String authorization(String login, String password) throws Exception {
         for(Student elm : dataInJsonFormat.students) {
             if (elm.equalsLoginPass(login, password)) {
                 return elm.getToken();
             }
         }
 
-        return "";
+        throw new IllegalArgumentException("Not found for 'token'");
     }
 
     @Override
@@ -100,8 +100,8 @@ public class JsonDataBase implements DataBase {
                 return elm.getID();
             }
         }
-        
-        return -1;
+
+        throw new IllegalArgumentException("Not found for 'token'");
     }
 
     @Override
@@ -113,12 +113,11 @@ public class JsonDataBase implements DataBase {
             }
         }
 
-        return null;
+        throw new IllegalArgumentException("Not found for 'token'");
     }
 
     @Override
     public JsonObject schedule(int ID) throws SQLException {
-        JsonObject result = new JsonObject();
         int groups_ID = 0;
         for (Student elm : dataInJsonFormat.students) {
             if (elm.getID() == ID) {
@@ -127,15 +126,13 @@ public class JsonDataBase implements DataBase {
             }
         }
 
-        JsonObject jsonSchedule = null;
         for (Group group : dataInJsonFormat.groups) {
             if (group.getID() == groups_ID) {
-                jsonSchedule = group.getSchedule().toJson(dataInJsonFormat);//JsonParser.parseString(gson.toJson(group));
-                break;
+                return group.getSchedule().toJson(dataInJsonFormat);
             }
         }
 
-        return jsonSchedule;
+        throw new IllegalArgumentException("Not found for 'token'");
     }
 
     @Override
@@ -285,8 +282,6 @@ class Schedule {
                 jsonArr2.get(j).getAsJsonObject().addProperty("things", dataBase.getThings(things_ID).getName_things());
                 jsonArr2.get(j).getAsJsonObject().addProperty("teacher", dataBase.getTeacher(teacher_ID).getFullName());
 
-
-                jsonArr2.get(j).getAsJsonObject().addProperty("name", "asdfasdf");
             }
         }
 

@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 import java.sql.SQLException;
 
 public interface DataBase {
-    String authorization(String login, String password);
+    String authorization(String login, String password) throws Exception;
     void registration(String name, String surname, String patronymic, String groups, String mail, String password);
 
     int getIDForToken(String token);
