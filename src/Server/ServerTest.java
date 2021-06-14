@@ -35,7 +35,7 @@ class ServerTest {
     @Test
     void serverAuthorizationTest() throws Exception {
         String api = "api/authorization";
-        String paramEnc =  URLEncoder.encode(String.format("login=%s&password=%s", "mail", "pass"), StandardCharsets.UTF_8);
+        String paramEnc =  URLEncoder.encode(String.format("login=%s&password=%s", "Mail", "pass"), StandardCharsets.UTF_8);
         String jsonToken = sendInquiry(api, paramEnc);
         this.token = JsonParser.parseString(jsonToken).getAsJsonObject().get("token").getAsString();
 
