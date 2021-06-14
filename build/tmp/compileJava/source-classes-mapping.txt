@@ -1,0 +1,45 @@
+API/News.java
+ API.News
+API/Registration.java
+ API.Registration
+DataBase/CreationJson.java
+ DataBase.CreationJson
+API/SendMessage.java
+ API.SendMessage
+API/Authorization.java
+ API.Authorization
+API/Schedule.java
+ API.Schedule
+API/Message.java
+ API.Message
+DataBase/MySqlDataBase.java
+ DataBase.MySqlDataBase
+DataBase/JsonDataBase.java
+ DataBase.JsonDataBase
+API/Command.java
+ API.Command
+API/PersonData.java
+ API.PersonData
+API/HandlerAPI.java
+ API.HandlerAPI
+DataBase/DataBase.java
+ DataBase.DataBase
+DataBase/DataInJsonFormat.java
+ DataBase.DataInJsonFormat
+ DataBase.Day
+ DataBase.Group
+ DataBase.Lesson
+ DataBase.Message
+ DataBase.News
+ DataBase.Schedule
+ DataBase.Student
+ DataBase.Teacher
+ DataBase.Thing
+Server/ServerControl.java
+ Server.ServerControl
+com/vivt/Main.java
+ com.vivt.Main
+Server/Server.java
+ Server.Server
+com/vivt/Config.java
+ com.vivt.Config
