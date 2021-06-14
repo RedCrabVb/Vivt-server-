@@ -59,6 +59,15 @@ class ServerTest {
     }
 
     @Test
+    void serverSendMessage() throws Exception {
+        String api = "api/send_message";
+        String paramEnc = URLEncoder.encode(String.format("recipient=%s&from_whom=%s&header=%s&text=%s", "gmail", "mail", "TestServer", "test test test"), StandardCharsets.UTF_8);
+        String result = sendInquiry(api, paramEnc);
+
+        System.out.println("Json get: " + result);
+    }
+
+    @Test
     void serverMessage() throws Exception {
         String api = "api/message";
         String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);

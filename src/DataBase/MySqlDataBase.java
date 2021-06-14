@@ -128,4 +128,14 @@ public class MySqlDataBase implements DataBase {
     public JsonObject academicPerformance(int ID) throws SQLException {
         return new JsonObject();
     }
+
+    @Override
+    public boolean sendMessage(int sender, int recipient, String header, String text) {
+        return false;
+    }
+
+    @Override
+    public int getIDbyMail(String name) {
+        return 0;
+    }
 }
