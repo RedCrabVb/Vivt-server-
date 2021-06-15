@@ -3,6 +3,7 @@ package Server;
 import com.vivt.Main;
 
 import java.io.FileInputStream;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -17,7 +18,7 @@ import java.util.logging.Logger;
 public class ServerControl extends Thread {
     private static boolean showLog = false;
     private final String cls = "/cls",
-            info = "/info", logShow = "/logShow", close = "/close",
+            info = "/info", sendMessage = "/msg", logShow = "/logShow", close = "/close",
             help = "/help";
 
     public static Logger LOGGER;
@@ -38,7 +39,7 @@ public class ServerControl extends Thread {
         Scanner scanner = new Scanner(System.in);
         String login;
 
-        String _help = " /cls - clear terminal \n /logShow \n " +
+        String _help = " /cls - clear terminal \n /logShow \n /msg [title] [body] - send message " +
                 "/info - server status information \n /close \n /help - it is reference\n";
         System.out.println(_help);
 
@@ -62,6 +63,12 @@ public class ServerControl extends Thread {
                     case close:
                         Server.close();
                         return;
+                    case sendMessage:
+                        String title = scanner.next();
+                        String body = scanner.next();
+
+                        Server.sendPushNotifications(Arrays.asList(new String[]{Server.tokenTest}), title, body);
+                        break;
                     default:
                         System.out.println("What does this command mean?");
                         break;

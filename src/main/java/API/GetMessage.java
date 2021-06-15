@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 
 import java.util.Map;
 
-public class Message implements Command {
+public class GetMessage implements Command {
     @Override
     public JsonObject execute(Map<String, String> params) throws Exception {
         return Server.dataBase.message(HandlerAPI.getIDForParameters(params));

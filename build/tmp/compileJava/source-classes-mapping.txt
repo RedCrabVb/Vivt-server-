@@ -4,18 +4,16 @@ API/Registration.java
  API.Registration
 DataBase/CreationJson.java
  DataBase.CreationJson
-API/SendMessage.java
- API.SendMessage
+API/GetMessage.java
+ API.GetMessage
 API/Authorization.java
  API.Authorization
 API/Schedule.java
  API.Schedule
-API/Message.java
- API.Message
-DataBase/MySqlDataBase.java
- DataBase.MySqlDataBase
-DataBase/JsonDataBase.java
- DataBase.JsonDataBase
+com/vivt/Config.java
+ com.vivt.Config
+Server/ServerControl.java
+ Server.ServerControl
 API/Command.java
  API.Command
 API/PersonData.java
@@ -35,11 +33,13 @@ DataBase/DataInJsonFormat.java
  DataBase.Student
  DataBase.Teacher
  DataBase.Thing
-Server/ServerControl.java
- Server.ServerControl
 com/vivt/Main.java
  com.vivt.Main
+DataBase/MySqlDataBase.java
+ DataBase.MySqlDataBase
+DataBase/JsonDataBase.java
+ DataBase.JsonDataBase
+API/SendMessage.java
+ API.SendMessage
 Server/Server.java
  Server.Server
-com/vivt/Config.java
- com.vivt.Config
