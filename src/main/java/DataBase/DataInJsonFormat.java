@@ -11,8 +11,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public
-class DataInJsonFormat {
+public class DataInJsonFormat {
     public ArrayList<News> news = new ArrayList<>();
     public ArrayList<Student> students = new ArrayList<>();
     public ArrayList<Teacher> teachers = new ArrayList<>();

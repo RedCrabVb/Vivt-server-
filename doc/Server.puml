@@ -1,0 +1,40 @@
+@startuml
+
+class Server {
+    + DataBase
+    + Token
+    - run()
+}
+
+interface command {
+    Server
+    json execute()
+}
+
+class HandlerApi {
+    + command
+    + handle
+}
+
+class DataBase {
+    authorization(login,password)
+    String registration(Full Name, mail, password)
+
+    int getIDForToken(token);
+
+    Json personData(int ID)
+    Json schedule(int ID)
+    Json news()
+    Json importantDates()
+    Json message(int ID)
+    Json academicPerformance(int ID)
+
+    bool sendMessage(sender, recipient, header, text)
+    int getIDbyMail(mail)
+}
+
+Server o-- DataBase
+Server o-- HandlerApi
+HandlerApi o-- command
+
+@enduml

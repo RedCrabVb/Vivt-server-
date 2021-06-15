@@ -1,0 +1,91 @@
+@startuml
+
+class DataBase {
+    news
+    students
+    teachers
+    things
+    messages
+    groups
+}
+
+class News {
+    ID
+    name_news
+    text_news
+    img_path
+}
+
+
+class Group {
+    ID
+    name_groups
+    schedule
+}
+
+class Schedule {
+    dayArrayList
+}
+
+class Day {
+    day_of_week
+    thingsArrayList
+}
+
+class Lesson {
+    number_pairs
+    teacher_ID
+    audience
+    things_ID
+}
+
+class Teacher {
+     ID
+     surname
+     name
+     patronymic
+}
+
+class Thing {
+     ID
+     type_lesson
+     name_things
+}
+
+class Student {
+     ID
+     groups_ID
+     token
+     mail
+     password
+     surname
+     name
+     patronymic
+     grade_book_number
+
+}
+
+class Message {
+     ID
+     recipient
+     from_whom
+     is_read
+     header
+     text
+}
+
+DataBase --> News
+DataBase --> Message
+DataBase --> Student
+DataBase --> Thing
+DataBase --> Teacher
+DataBase --> Group
+Group --> Schedule
+Student --> Group
+Schedule --> Day
+Day -> Lesson
+Lesson -> ID_Thing
+Lesson -> ID_Teacher
+
+
+@enduml
