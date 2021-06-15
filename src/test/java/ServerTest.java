@@ -1,6 +1,7 @@
-import Server.Server;
+import com.Server.Server;
+import com.Server.ServerControl;
 import com.google.gson.JsonParser;
-import com.vivt.Main;
+import com.Vivt.Main;
 import org.junit.jupiter.api.*;
 
 import java.io.BufferedReader;
@@ -19,15 +20,14 @@ class ServerTest {
 
     @BeforeEach
     void serverStart() throws Exception {
-
-        if(!Server.isActive()) {
+        if(Server.getInstance() == null) {
             Main.main(new String[]{});
         }
     }
 
     @AfterEach
     void endTest() throws Exception {
-        Thread.sleep(500);//fix bug java, https://bugs.openjdk.java.net/browse/JDK-8214300
+        Thread.sleep(250);//fix bug java, https://bugs.openjdk.java.net/browse/JDK-8214300
     }
 
     @Test
@@ -48,7 +48,7 @@ class ServerTest {
     }
 
     @Test
-    void serverSchedule() throws Exception {
+    void serverGetSchedule() throws Exception {
         String api = "api/schedule";
         String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
         String result = sendInquiry(api, paramEnc);
@@ -66,12 +66,21 @@ class ServerTest {
     }
 
     @Test
-    void serverMessage() throws Exception {
+    void serverGetMessage() throws Exception {
         String api = "api/message";
         String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
+
         String result = sendInquiry(api, paramEnc);
 
         System.out.println("Json get: " + result);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        Server server = Server.getInstance();
+        server.close();
+
+        Thread.sleep(500);//fix bug java, https://bugs.openjdk.java.net/browse/JDK-8214300
     }
 
     @Test
@@ -93,6 +102,7 @@ class ServerTest {
     }
 
     private String sendInquiry(String api, String json) throws Exception {
+        json = json.replace("+", "%20"); // fix space encoder
         URL url = new URL(String.format("http://localhost:8080/%s?%s", api, json));
         HttpURLConnection connection = getResponseServer(url);
         String response = connectionResponseToString(connection);

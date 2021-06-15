@@ -1,825 +1,873 @@
 {
-   "news":[
-      {
-         "ID":1,
-         "name_news":"None_name",
-         "text_news":"None_text",
-         "img_path":"./img.png"
-      },
-      {
-         "ID":2,
-         "name_news":"None_name",
-         "text_news":"None_text",
-         "img_path":"./img.png"
-      }
-   ],
-   "students":[
-      {
-         "ID":1,
-         "Groups_ID":1,
-         "token":"881df44f-0de6-4709-800b-ffa515812eed",
-         "mail":"mail",
-         "password":"pass",
-         "surname":"Иванов",
-         "name":"Иван",
-         "patronymic":"Иванович",
-         "grade_book_number":"pks-234"
-      },
-      {
-         "ID":2,
-         "Groups_ID":1,
-         "token":"a12168f3-29f3-4316-af2e-2262bc306c56",
-         "mail":"gmail",
-         "password":"wrq",
-         "surname":"Сергей",
-         "name":"Федоров",
-         "patronymic":"Федорович",
-         "grade_book_number":"pks-234"
-      },
-      {
-         "ID":3,
-         "Groups_ID":1,
-         "token":"e2e3055f-705f-4351-a61c-4a020ae279eb",
-         "mail":"ymail@mail",
-         "password":"wrq123",
-         "surname":"Карсева",
-         "name":"Полина",
-         "patronymic":"Алексеевна",
-         "grade_book_number":"pks-234"
-      },
-      {
-         "ID":4,
-         "Groups_ID":1,
-         "token":"e598bbd7-bb43-40f8-9fbe-1bef774f3a2b",
-         "mail":"gmail22",
-         "password":"wrq",
-         "surname":"Логинов",
-         "name":"Сергей",
-         "patronymic":"Николаевич",
-         "grade_book_number":"pks-234"
-      },
-      {
-         "ID":5,
-         "Groups_ID":1,
-         "token":"a407e875-1c84-4416-ab66-27cb348588c2",
-         "mail":"gmail22",
-         "password":"wrq",
-         "surname":"Владимирова",
-         "name":"Ольга",
-         "patronymic":"Викторовна",
-         "grade_book_number":"at-028"
-      }
-   ],
-   "teachers":[
-      {
-         "ID":0,
-         "surname":"",
-         "name":"",
-         "patronymic":""
-      },
-      {
-         "ID":1,
-         "surname":"Карсева",
-         "name":"Юлия",
-         "patronymic":"Иванова"
-      },
-      {
-         "ID":2,
-         "surname":"Ардаков",
-         "name":"Игорь",
-         "patronymic":"Герасимович"
-      },
-      {
-         "ID":3,
-         "surname":"Гришина",
-         "name":"Ольга",
-         "patronymic":"Константиновна"
-      }
-   ],
-   "things":[
-      {
-         "ID":0,
-         "type_lesson":"",
-         "name_things":""
-      },
-      {
-         "ID":1,
-         "type_lesson":"L",
-         "name_things":"Физическая культура"
-      },
-      {
-         "ID":2,
-         "type_lesson":"P",
-         "name_things":"Технические средства информатизации"
-      },
-      {
-         "ID":3,
-         "type_lesson":"L",
-         "name_things":"Иностранный язык"
-      },
-      {
-         "ID":4,
-         "type_lesson":"P",
-         "name_things":"Операционные системы"
-      }
-   ],
-   "messages":[
-      {
-         "ID":1,
-         "recipient":1,
-         "from_whom":2,
-         "header":"Main",
-         "text":"bal_bal_bla 12"
-      },
-      {
-         "ID":2,
-         "recipient":1,
-         "from_whom":5,
-         "header":"LK",
-         "text":"bal_bal_bla 15"
-      },
-      {
-         "ID":3,
-         "recipient":2,
-         "from_whom":3,
-         "header":"LK",
-         "text":"bal_bal_bla 23"
-      }
-   ],
-   "groups":[
-      {
-         "ID":1,
-         "name_groups":"pks-029",
-         "schedule":{
-            "dayArrayList":[
-               {
-                  "day_of_week":"Mon",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":1,
-                        "audience":"",
-                        "things_ID":1
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":2,
-                        "audience":"",
-                        "things_ID":2
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":3,
-                        "audience":"",
-                        "things_ID":3
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":2,
-                        "audience":"",
-                        "things_ID":3
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Tue",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":2,
-                        "audience":"",
-                        "things_ID":2
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":3,
-                        "audience":"",
-                        "things_ID":1
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":3,
-                        "audience":"",
-                        "things_ID":2
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Wen",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Thu",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Fri",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Sat",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Sun",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               }
+  "news": [
+    {
+      "ID": 1,
+      "name_news": "None_name",
+      "text_news": "None_text",
+      "img_path": "./img.png"
+    },
+    {
+      "ID": 2,
+      "name_news": "None_name",
+      "text_news": "None_text",
+      "img_path": "./img.png"
+    }
+  ],
+  "students": [
+    {
+      "ID": 1,
+      "Groups_ID": 1,
+      "token": "881df44f-0de6-4709-800b-ffa515812eed",
+      "mail": "mail",
+      "password": "pass",
+      "surname": "Иванов",
+      "name": "Иван",
+      "patronymic": "Иванович",
+      "grade_book_number": "pks-234"
+    },
+    {
+      "ID": 2,
+      "Groups_ID": 1,
+      "token": "a12168f3-29f3-4316-af2e-2262bc306c56",
+      "mail": "gmail",
+      "password": "wrq",
+      "surname": "Сергей",
+      "name": "Федоров",
+      "patronymic": "Федорович",
+      "grade_book_number": "pks-234"
+    },
+    {
+      "ID": 3,
+      "Groups_ID": 1,
+      "token": "e2e3055f-705f-4351-a61c-4a020ae279eb",
+      "mail": "ymail@mail",
+      "password": "wrq123",
+      "surname": "Карсева",
+      "name": "Полина",
+      "patronymic": "Алексеевна",
+      "grade_book_number": "pks-234"
+    },
+    {
+      "ID": 4,
+      "Groups_ID": 1,
+      "token": "e598bbd7-bb43-40f8-9fbe-1bef774f3a2b",
+      "mail": "gmail22",
+      "password": "wrq",
+      "surname": "Логинов",
+      "name": "Сергей",
+      "patronymic": "Николаевич",
+      "grade_book_number": "pks-234"
+    },
+    {
+      "ID": 5,
+      "Groups_ID": 1,
+      "token": "a407e875-1c84-4416-ab66-27cb348588c2",
+      "mail": "gmail22",
+      "password": "wrq",
+      "surname": "Владимирова",
+      "name": "Ольга",
+      "patronymic": "Викторовна",
+      "grade_book_number": "at-028"
+    },
+    {
+      "ID": 1,
+      "Groups_ID": 1,
+      "token": "91066ad3-006f-4cec-958b-4db495b810c4",
+      "mail": "mail222",
+      "password": "asdf",
+      "surname": "testSurname",
+      "name": "testName",
+      "patronymic": "testPatronymic",
+      "grade_book_number": "pks-0292434609076675534972"
+    },
+    {
+      "ID": 1,
+      "Groups_ID": 1,
+      "token": "1b208601-f02f-445d-8d5a-30e53f5e815f",
+      "mail": "mail222",
+      "password": "asdf",
+      "surname": "testSurname",
+      "name": "testName",
+      "patronymic": "testPatronymic",
+      "grade_book_number": "pks-0292-4958530712582229698"
+    },
+    {
+      "ID": 1,
+      "Groups_ID": 1,
+      "token": "933b8466-4175-4722-98cc-1db285ededcb",
+      "mail": "mail222",
+      "password": "asdf",
+      "surname": "testSurname",
+      "name": "testName",
+      "patronymic": "testPatronymic",
+      "grade_book_number": "pks-0292-953546182829949609"
+    }
+  ],
+  "teachers": [
+    {
+      "ID": 0,
+      "surname": "",
+      "name": "",
+      "patronymic": ""
+    },
+    {
+      "ID": 1,
+      "surname": "Карсева",
+      "name": "Юлия",
+      "patronymic": "Иванова"
+    },
+    {
+      "ID": 2,
+      "surname": "Ардаков",
+      "name": "Игорь",
+      "patronymic": "Герасимович"
+    },
+    {
+      "ID": 3,
+      "surname": "Гришина",
+      "name": "Ольга",
+      "patronymic": "Константиновна"
+    }
+  ],
+  "things": [
+    {
+      "ID": 0,
+      "type_lesson": "",
+      "name_things": ""
+    },
+    {
+      "ID": 1,
+      "type_lesson": "L",
+      "name_things": "Физическая культура"
+    },
+    {
+      "ID": 2,
+      "type_lesson": "P",
+      "name_things": "Технические средства информатизации"
+    },
+    {
+      "ID": 3,
+      "type_lesson": "L",
+      "name_things": "Иностранный язык"
+    },
+    {
+      "ID": 4,
+      "type_lesson": "P",
+      "name_things": "Операционные системы"
+    }
+  ],
+  "messages": [
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "Main",
+      "text": "bal_bal_bla 12"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 5,
+      "header": "LK",
+      "text": "bal_bal_bla 15"
+    },
+    {
+      "recipient": 2,
+      "from_whom": 3,
+      "header": "LK",
+      "text": "bal_bal_bla 23"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
+    }
+  ],
+  "groups": [
+    {
+      "ID": 1,
+      "name_groups": "pks-029",
+      "schedule": {
+        "dayArrayList": [
+          {
+            "day_of_week": "Mon",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 1,
+                "audience": "",
+                "things_ID": 1
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 2,
+                "audience": "",
+                "things_ID": 2
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 3,
+                "audience": "",
+                "things_ID": 3
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 2,
+                "audience": "",
+                "things_ID": 3
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
             ]
-         }
-      },
-      {
-         "ID":2,
-         "name_groups":"at-028",
-         "schedule":{
-            "dayArrayList":[
-               {
-                  "day_of_week":"Mon",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Tue",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Wen",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Thu",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Fri",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Sat",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               },
-               {
-                  "day_of_week":"Sun",
-                  "thingsArrayList":[
-                     {
-                        "number_pairs":1,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":2,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":3,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":4,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":5,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":6,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     },
-                     {
-                        "number_pairs":7,
-                        "teacher_ID":0,
-                        "audience":"",
-                        "things_ID":0
-                     }
-                  ]
-               }
+          },
+          {
+            "day_of_week": "Tue",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 2,
+                "audience": "",
+                "things_ID": 2
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 3,
+                "audience": "",
+                "things_ID": 1
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 3,
+                "audience": "",
+                "things_ID": 2
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
             ]
-         }
+          },
+          {
+            "day_of_week": "Wen",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Thu",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Fri",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Sat",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Sun",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          }
+        ]
       }
-   ]
+    },
+    {
+      "ID": 2,
+      "name_groups": "at-028",
+      "schedule": {
+        "dayArrayList": [
+          {
+            "day_of_week": "Mon",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Tue",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Wen",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Thu",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Fri",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Sat",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          },
+          {
+            "day_of_week": "Sun",
+            "thingsArrayList": [
+              {
+                "number_pairs": 1,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 2,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 3,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 4,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 5,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 6,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              },
+              {
+                "number_pairs": 7,
+                "teacher_ID": 0,
+                "audience": "",
+                "things_ID": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }
