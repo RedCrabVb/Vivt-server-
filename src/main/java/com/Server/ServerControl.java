@@ -1,13 +1,9 @@
 package com.Server;
 
-import com.API.SendMessage;
-import com.DataBase.JsonDataBase;
 import com.Vivt.Config;
 import com.Vivt.Main;
 
 import java.io.FileInputStream;
-import java.util.Arrays;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
@@ -19,6 +15,7 @@ import java.util.logging.Logger;
 * The single-responsibility principle may be violated
 * */
 public class ServerControl extends Thread {
+    private Server server;
     private static boolean showLog = false;
     private final String cls = "/cls",
             info = "/info", sendMessage = "/msg", logShow = "/logShow", close = "/close",
@@ -26,13 +23,15 @@ public class ServerControl extends Thread {
 
     public static Logger LOGGER;
 
-    public ServerControl(String configPath) {
+    public ServerControl(String configPath, Server server) {
         try (FileInputStream ins = new FileInputStream(configPath)) {
             LogManager.getLogManager().readConfiguration(ins);
             LOGGER = Logger.getLogger(Main.class.getName());
         } catch (Exception ignore) {
             ignore.printStackTrace();
         }
+
+        this.server = server;
 
         LOGGER.setLevel(!showLog ? Level.OFF : Level.ALL);
         start();
@@ -64,7 +63,8 @@ public class ServerControl extends Thread {
                         System.out.println(_help);
                         break;
                     case close:
-                        Server.getInstance(1, Config.databaseCreate(Config.getInstance())).close();
+                        Config config = Config.getInstance();
+                        Server.getInstance(config.getServerPort(), Config.databaseCreate(config)).close();
                         return;
                     case sendMessage:
                         String title = scanner.next();
@@ -72,10 +72,7 @@ public class ServerControl extends Thread {
                         String sender = scanner.next();
                         String recipient = scanner.next();
 
-                       // Server.sendPushNotifications(Arrays.asList(new String[]{server.tokenTest}), title, body);
-                        String request = String.format("recipient=%s&from_whom=%s&header=%s&text=%s", recipient, sender, title, body);
-                        Map<String, String> params = Server.queryToMap(request);
-                        new SendMessage(new JsonDataBase("")).execute(params);
+                        server.sendMessage(recipient, sender, title, body);
                         break;
                     default:
                         System.out.println("What does this command mean?");
@@ -86,5 +83,4 @@ public class ServerControl extends Thread {
             }
         }
     }
-
 }

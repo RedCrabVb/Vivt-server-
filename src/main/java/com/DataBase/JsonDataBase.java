@@ -3,13 +3,12 @@ package com.DataBase;
 import com.google.gson.*;
 
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.sql.SQLException;
 import java.util.*;
 
 public class JsonDataBase implements DataBase {
-    private static JsonDataBase jsonDataBase;
     private static String pathJsonDataBase;
     private DataInJsonFormat dataInJsonFormat;
     private Gson gson = new Gson();
@@ -59,26 +58,21 @@ public class JsonDataBase implements DataBase {
     }
 
     public void save() {
-        try (FileOutputStream outputStream = new FileOutputStream(JsonDataBase.pathJsonDataBase)){
+
+        try (FileWriter outputStream = new FileWriter(JsonDataBase.pathJsonDataBase)){ ;
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
             String str = gson.toJson(dataInJsonFormat);
-            byte[] strToBytes = str.getBytes();
-            outputStream.write(strToBytes);
+            outputStream.write(str);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public JsonDataBase(String pathJsonDataBase) throws FileNotFoundException {
-       // dataInJsonFormat = init();
+        //dataInJsonFormat = init();
         dataInJsonFormat = gson.fromJson(new FileReader(pathJsonDataBase), DataInJsonFormat.class);
         JsonDataBase.pathJsonDataBase = pathJsonDataBase;
-        JsonDataBase.jsonDataBase = this;
-    }
-
-    public static JsonDataBase getInstance() {
-        return JsonDataBase.jsonDataBase;
     }
 
     @Override
@@ -187,8 +181,9 @@ public class JsonDataBase implements DataBase {
 
     @Override
     public boolean sendMessage(int sender, int recipient, String header, String text) {
-        dataInJsonFormat.messages.add(new Message(recipient, header, text, sender));
-        return false;
+        boolean result = dataInJsonFormat.messages.add(new Message(recipient, header, text, sender));
+        save();
+        return result;
     }
 
     @Override

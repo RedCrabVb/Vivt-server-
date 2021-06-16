@@ -12,7 +12,7 @@ public class Main {
         Config config = Config.getInstance(args);
         Server server = Server.getInstance(config.getServerPort(), Config.databaseCreate(config));
 
-        new ServerControl(config.getLogConfPath());
+        new ServerControl(config.getLogConfPath(), server);
         server.run();
 
         ServerControl.LOGGER.log(Level.INFO, "Server start " + new Date().toString());

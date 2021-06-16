@@ -22,10 +22,10 @@ public class SendMessage implements Command {
         String text = params.get("text");
 
         boolean result = dataBase.sendMessage(recipient, from_whom, text, header);
+        Server.sendPushNotifications(Arrays.asList(new String[]{Server.tokenTest}), header, text);
+
         JsonObject json = new JsonObject();
         json.addProperty("result", result);
-
-        Server.sendPushNotifications(Arrays.asList(new String[]{Server.tokenTest}), header, text);
 
         return json;
     }

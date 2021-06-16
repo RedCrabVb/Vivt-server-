@@ -4,6 +4,7 @@ import com.API.*;
 import com.DataBase.DataBase;
 
 import com.DataBase.JsonDataBase;
+import com.google.api.client.repackaged.com.google.common.annotations.VisibleForTesting;
 import com.google.gson.JsonObject;
 import com.sun.net.httpserver.HttpServer;
 
@@ -28,6 +29,8 @@ public class Server {
     public final static String tokenTest = "dG8qfPtBD6r60NQw-6r-qa:APA91bGeR0IHj7QqxO3lr5uGtPdd4ix_0VQqGRMjz8tcGyLJWqZstjmyzWGZUPubhmsnzEwYJvZB-XjesbLyd6FlMhzIvqkbm5dJqgRv0BVGzo2FjL1e9IlU543PNcEx3zB_JagdFA2K";
     private final static String apiKey = "AAAAHf4SliA:APA91bHpj0yrmmlORa4Zt_8-zx8ROEJutjfghnvdYGxDxQC0itHMOoOQf31XzsY6vUIffKb9tZU1A_xKq7etdCm6xIpmpm4cwjugerxzOENPFY8jm8o_D95Dnhvh7n-Sv1oz24uwKjax";
 
+    private SendMessage sendMessage;
+
     private Server(int port, DataBase dataBase) throws Exception {
         this.dataBase = dataBase;
         this.serverHttp = HttpServer.create(new InetSocketAddress(port), 0);
@@ -46,23 +49,20 @@ public class Server {
     }
 
     public void run() {
+        this.sendMessage = new SendMessage(dataBase);
         serverHttp.createContext("/api/message", new HandlerAPI(new GetMessage(dataBase, this), this));
         serverHttp.createContext("/api/person_data", new HandlerAPI(new GetPersonData(dataBase, this), this));
         serverHttp.createContext("/api/news", new HandlerAPI(new GetNews(dataBase), this));
         serverHttp.createContext("/api/schedule", new HandlerAPI(new GetSchedule(dataBase, this), this));
         serverHttp.createContext("/api/authorization", new HandlerAPI(new Authorization(dataBase), this));
         serverHttp.createContext("/api/registration", new HandlerAPI(new Registration(dataBase), this));
-        serverHttp.createContext("/api/send_message", new HandlerAPI(new SendMessage(dataBase), this));
+        serverHttp.createContext("/api/send_message", new HandlerAPI(this.sendMessage, this));
         serverHttp.setExecutor(null); // creates a default executor
         serverHttp.start();
     }
 
     public void close() {
         serverHttp.stop(1);
-
-        if (JsonDataBase.getInstance() != null) {
-            JsonDataBase.getInstance().save();
-        }
 
         ServerControl.LOGGER.log(Level.INFO, "Server stop " + new Date().toString());
     }
@@ -88,10 +88,11 @@ public class Server {
         }
     }
 
-    public static Map<String, String> queryToMap(String query) {
+    public Map<String, String> queryToMap(String query) {
         if(query == null) {
             return null;
         }
+
         Map<String, String> result = new HashMap<>();
         for (String param : query.split("&")) {
             String[] entry = param.split("=");
@@ -108,5 +109,15 @@ public class Server {
         String token = params.get("token");
         int userID = dataBase.getIDForToken(token);
         return userID;
+    }
+
+    @VisibleForTesting
+    void sendMessage(String recipient, String sender, String title, String body) {
+        String paramEnc = String.format("recipient=%s&from_whom=%s&header=%s&text=%s", recipient, sender, title, body);
+        try {
+            sendMessage.execute(queryToMap(paramEnc));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
