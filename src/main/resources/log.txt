@@ -1,2 +1,38 @@
 Jun 16, 2021 9:07:43 AM com.Server.Server close
 INFO: Server stop Wed Jun 16 09:07:43 MSK 2021
+Jun 16, 2021 8:52:26 PM com.Server.HandlerAPI handle
+INFO: get url: null
+Jun 16, 2021 8:52:26 PM com.Server.HandlerAPI handle
+INFO: send error: java.lang.NullPointerException
+Jun 16, 2021 9:05:55 PM com.Server.HandlerAPI handle
+INFO: get url: null
+Jun 16, 2021 9:05:55 PM com.Server.HandlerAPI handle
+INFO: send error: java.lang.NullPointerException
+Jun 16, 2021 9:26:00 PM com.Server.HandlerAPI handle
+INFO: get url: null
+Jun 16, 2021 9:26:00 PM com.Server.HandlerAPI handle
+INFO: send error: java.lang.NullPointerException
+Jun 16, 2021 9:26:52 PM com.Server.HandlerAPI handle
+INFO: get url: login=ьвлвл&password=вьылвл
+Jun 16, 2021 9:26:52 PM com.Server.HandlerAPI handle
+INFO: send error: java.lang.IllegalArgumentException: Not found for 'token'
+Jun 16, 2021 9:26:53 PM com.Server.HandlerAPI handle
+INFO: get url: login=ьвлвл&password=вьылвл
+Jun 16, 2021 9:26:53 PM com.Server.HandlerAPI handle
+INFO: send error: java.lang.IllegalArgumentException: Not found for 'token'
+Jun 16, 2021 9:26:53 PM com.Server.HandlerAPI handle
+INFO: get url: login=ьвлвл&password=вьылвл
+Jun 16, 2021 9:26:53 PM com.Server.HandlerAPI handle
+INFO: send error: java.lang.IllegalArgumentException: Not found for 'token'
+Jun 16, 2021 9:27:15 PM com.Server.HandlerAPI handle
+INFO: get url: login=mail&password=gmail
+Jun 16, 2021 9:27:15 PM com.Server.HandlerAPI handle
+INFO: send error: java.lang.IllegalArgumentException: Not found for 'token'
+Jun 16, 2021 9:27:21 PM com.Server.HandlerAPI handle
+INFO: get url: login=mail&password=pass
+Jun 16, 2021 9:27:21 PM com.Server.HandlerAPI handle
+INFO: send json: {"token":"aaebccce-f501-4053-8d85-40f6dd158b46"}
+Jun 16, 2021 9:33:14 PM com.Server.HandlerAPI handle
+INFO: get url: login=mail&password=pass
+Jun 16, 2021 9:33:14 PM com.Server.HandlerAPI handle
+INFO: send json: {"token":"aaebccce-f501-4053-8d85-40f6dd158b46"}

@@ -30,7 +30,7 @@
       "Groups_ID": 1,
       "token": "58ffa9cf-105b-45d9-87a1-0cb1a4da7c22",
       "mail": "gmail",
-      "password": "wrq",
+      "password": "wrqtest",
       "surname": "Сергей",
       "name": "Федоров",
       "patronymic": "Федорович",
@@ -134,6 +134,39 @@
       "name": "testName",
       "patronymic": "testPatronymic",
       "grade_book_number": "pks-0292-4493602491081318380"
+    },
+    {
+      "ID": 1,
+      "Groups_ID": 1,
+      "token": "e90834c3-0b58-4414-a6a4-f1603e0e6a76",
+      "mail": "mail222",
+      "password": "asdf",
+      "surname": "testSurname",
+      "name": "testName",
+      "patronymic": "testPatronymic",
+      "grade_book_number": "pks-0292-8138687323639921033"
+    },
+    {
+      "ID": 1,
+      "Groups_ID": 1,
+      "token": "651b2a23-6b1a-41d6-ba25-f9eb151a7391",
+      "mail": "mail222",
+      "password": "asdf",
+      "surname": "testSurname",
+      "name": "testName",
+      "patronymic": "testPatronymic",
+      "grade_book_number": "pks-0292-1764117950991368880"
+    },
+    {
+      "ID": 1,
+      "Groups_ID": 1,
+      "token": "8f381b93-a266-40fd-908a-1951e87d3a0b",
+      "mail": "mail222",
+      "password": "asdf",
+      "surname": "testSurname",
+      "name": "testName",
+      "patronymic": "testPatronymic",
+      "grade_book_number": "pks-02928031186863953725483"
     }
   ],
   "teachers": [
@@ -213,6 +246,30 @@
       "from_whom": 1,
       "header": "test",
       "text": "test"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 1,
+      "header": "sad",
+      "text": "sdaf"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
     }
   ],
   "groups": [

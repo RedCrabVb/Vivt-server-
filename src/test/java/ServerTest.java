@@ -41,7 +41,7 @@ class ServerTest {
     }
 
     @Test
-    void serverPersonDataGet() throws Exception {
+    void serverNewsGet() throws Exception {
         String api = "api/news";
         String result = sendInquiry(api, "");
         System.out.println(result);
@@ -75,14 +75,14 @@ class ServerTest {
         System.out.println("Json get: " + result);
     }
 
-    @Override
-    protected void finalize() throws Throwable {
-        Server server = Server.getInstance();
-        server.close();
+    @Test
+    void serverPersonDataGet() throws Exception {
+        String api = "api/person_data";
+        String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
+        String result = sendInquiry(api, paramEnc);
 
-        Thread.sleep(500);//fix bug java, https://bugs.openjdk.java.net/browse/JDK-8214300
+        System.out.println("Json get: " + result);
     }
-
     @Test
     void serverRegistration() throws Exception {
         String api = "api/registration";
@@ -121,8 +121,7 @@ class ServerTest {
     }
 
     private String connectionResponseToString(HttpURLConnection connection) throws IOException {
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(connection.getInputStream()));
+        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String urlString = "";
         String current;
 
