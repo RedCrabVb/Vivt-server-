@@ -89,7 +89,7 @@ public class MySqlDataBase implements DataBase {
         JsonArray arr = new JsonArray();
 
         ResultSet rs = st.executeQuery();
-        while(rs.next()) {
+        while (rs.next()) {
             ResultSetMetaData rsmd = rs.getMetaData();
 
             int numColumns = rsmd.getColumnCount();

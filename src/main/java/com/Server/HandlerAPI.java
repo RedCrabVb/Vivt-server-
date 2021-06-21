@@ -7,7 +7,6 @@ import com.sun.net.httpserver.HttpHandler;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 
@@ -27,9 +26,9 @@ public class HandlerAPI implements HttpHandler {
         Map<String, String> params = server.queryToMap(exchange.getRequestURI().getQuery());
 
         Headers headers = exchange.getResponseHeaders();
-        headers.add("Access-Control-Allow-Headers","x-prototype-version,x-requested-with");
-        headers.add("Access-Control-Allow-Methods","GET,POST");
-        headers.add("Access-Control-Allow-Origin","*");
+        headers.add("Access-Control-Allow-Headers", "x-prototype-version,x-requested-with");
+        headers.add("Access-Control-Allow-Methods", "GET,POST");
+        headers.add("Access-Control-Allow-Origin", "*");
 
         try {
             String response = command.execute(params).toString();

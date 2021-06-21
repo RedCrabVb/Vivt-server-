@@ -26,7 +26,7 @@ public class DataInJsonFormat {
             }
         }
 
-        return  new Thing("D", "S");
+        return new Thing("D", "S");
     }
 
     public Teacher getTeacher(int ID) {
@@ -36,7 +36,7 @@ public class DataInJsonFormat {
             }
         }
 
-        return  new Teacher("", "", "");
+        return new Teacher("", "", "");
     }
 }
 
@@ -87,6 +87,7 @@ class Group {
 
 class Schedule {
     private ArrayList<Day> dayArrayList = new ArrayList<>();
+
     public Schedule() {
         List<String> week = Arrays.asList("Mon", "Tue", "Wen", "Thu", "Fri", "Sat", "Sun");
         for (String day : week) {
@@ -183,7 +184,9 @@ class Thing {
         this.type_lesson = type_lesson;
     }
 
-    public int getID() {return  ID;}
+    public int getID() {
+        return ID;
+    }
 
     public String getType_lesson() {
         return type_lesson;
@@ -223,14 +226,16 @@ class Student {
     }
 
     public boolean equalsLoginPass(String login, String password) {
-        return  this.mail.equals(login) && this.password.equals(password);
+        return this.mail.equals(login) && this.password.equals(password);
     }
 
     public int getID() {
         return this.ID;
     }
 
-    public int getGroups_ID() {return this.Groups_ID;}
+    public int getGroups_ID() {
+        return this.Groups_ID;
+    }
 
     private String generatedToken() {
         String generatedString = "test";
@@ -247,7 +252,7 @@ class Student {
     }
 
     public String getMail() {
-        return  mail;
+        return mail;
     }
 }
 

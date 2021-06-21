@@ -3,7 +3,6 @@ package com.Server;
 import com.API.*;
 import com.DataBase.DataBase;
 
-import com.DataBase.JsonDataBase;
 import com.google.api.client.repackaged.com.google.common.annotations.VisibleForTesting;
 import com.google.gson.JsonObject;
 import com.sun.net.httpserver.HttpServer;
@@ -89,7 +88,7 @@ public class Server {
     }
 
     public Map<String, String> queryToMap(String query) {
-        if(query == null) {
+        if (query == null) {
             return null;
         }
 
@@ -98,7 +97,7 @@ public class Server {
             String[] entry = param.split("=");
             if (entry.length > 1) {
                 result.put(entry[0], entry[1]);
-            }else{
+            } else {
                 result.put(entry[0], "");
             }
         }

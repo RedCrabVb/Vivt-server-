@@ -14,11 +14,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /*
-* Contains the data required to connect to the database,
-* the version of the program,
-* the paths to the files necessary
-* for the program, the port number
-* */
+ * Contains the data required to connect to the database,
+ * the version of the program,
+ * the paths to the files necessary
+ * for the program, the port number
+ * */
 public class Config {
     private String typeBase = "";
     private String pathJsonDataBase = "";
@@ -34,7 +34,8 @@ public class Config {
 
     private static Config config;
 
-    private Config() { }
+    private Config() {
+    }
 
     private static Config createConfig(String jsonConfig, String configPath) {
         Config config = new Gson().fromJson(jsonConfig, Config.class);
@@ -60,9 +61,9 @@ public class Config {
         String typeBase = config.typeBase;
         if (typeBase.equals("mysql")) {
             return new MySqlDataBase(config.serverNameDB, config.portParameterDB,
-                        config.databaseNameParameterDB,
-                        config.userParameterDB, config.passwordParameterDB);
-        } else if (typeBase.equals("json")){
+                    config.databaseNameParameterDB,
+                    config.userParameterDB, config.passwordParameterDB);
+        } else if (typeBase.equals("json")) {
             return new JsonDataBase(config.pathJsonDataBase);
         } else {
             throw new Exception("Config error");
@@ -93,17 +94,16 @@ public class Config {
             for (int i = 0; i < args.length; i++) {
                 switch (args[i]) {
                     case "-configPath":
-                        configPath = args[i+1];
+                        configPath = args[i + 1];
                         break;
                 }
             }
             if (configPath == null) {
-                 configPath = "src/main/resources/Config.json";
+                configPath = "src/main/resources/Config.json";
             }
 
             String jsonConfig = fileToString(configPath);
             config = Config.createConfig(jsonConfig, configPath);
-            //config.save();
         }
 
         return config;

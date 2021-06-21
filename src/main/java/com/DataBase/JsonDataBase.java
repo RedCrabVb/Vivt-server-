@@ -20,10 +20,10 @@ public class JsonDataBase implements DataBase {
         Group newGroup1 = new Group("at-028");
 
         Student student = new Student(newGroup.getID(), "mail", "pass", "Иванов", "Иван", "Иванович", "pks-234");
-        Student student2 =  new Student(newGroup.getID(), "gmail", "wrq", "Сергей", "Федоров", "Федорович", "pks-234");
-        Student student3 =  new Student(newGroup.getID(), "ymail@mail", "wrq123", "Карсева", "Полина", "Алексеевна", "pks-234");
-        Student student4 =  new Student(newGroup.getID(), "gmail22", "wrq", "Логинов", "Сергей", "Николаевич", "pks-234");
-        Student student5 =  new Student(newGroup.getID(), "gmail22", "wrq", "Владимирова", "Ольга", "Викторовна", "at-028");
+        Student student2 = new Student(newGroup.getID(), "gmail", "wrq", "Сергей", "Федоров", "Федорович", "pks-234");
+        Student student3 = new Student(newGroup.getID(), "ymail@mail", "wrq123", "Карсева", "Полина", "Алексеевна", "pks-234");
+        Student student4 = new Student(newGroup.getID(), "gmail22", "wrq", "Логинов", "Сергей", "Николаевич", "pks-234");
+        Student student5 = new Student(newGroup.getID(), "gmail22", "wrq", "Владимирова", "Ольга", "Викторовна", "at-028");
 
         dataBase.teachers.add(new Teacher("", "", ""));
         dataBase.teachers.add(new Teacher("Карсева", "Юлия", "Иванова"));
@@ -59,7 +59,8 @@ public class JsonDataBase implements DataBase {
 
     public void save() {
 
-        try (FileWriter outputStream = new FileWriter(JsonDataBase.pathJsonDataBase)){ ;
+        try (FileWriter outputStream = new FileWriter(JsonDataBase.pathJsonDataBase)) {
+            ;
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
             String str = gson.toJson(dataInJsonFormat);
@@ -77,7 +78,7 @@ public class JsonDataBase implements DataBase {
 
     @Override
     public String authorization(String login, String password) throws Exception {
-        for(Student elm : dataInJsonFormat.students) {
+        for (Student elm : dataInJsonFormat.students) {
             if (elm.equalsLoginPass(login, password)) {
                 return elm.getToken();
             }
@@ -105,7 +106,7 @@ public class JsonDataBase implements DataBase {
 
     @Override
     public int getIDForToken(String token) {
-        for(Student elm : dataInJsonFormat.students) {
+        for (Student elm : dataInJsonFormat.students) {
             if (elm.getToken().equals(token)) {
                 return elm.getID();
             }
@@ -116,7 +117,7 @@ public class JsonDataBase implements DataBase {
 
     @Override
     public JsonObject personData(int ID) throws SQLException {
-        for(Student elm : dataInJsonFormat.students) {
+        for (Student elm : dataInJsonFormat.students) {
             if (elm.getID() == ID) {
                 String jsonStr = gson.toJson(elm);
                 return JsonParser.parseString(jsonStr).getAsJsonObject();
@@ -147,7 +148,7 @@ public class JsonDataBase implements DataBase {
 
     @Override
     public JsonObject news() throws SQLException {
-        String jsonStr =  gson.toJson(dataInJsonFormat.news);
+        String jsonStr = gson.toJson(dataInJsonFormat.news);
         var jsonArrNews = JsonParser.parseString(jsonStr).getAsJsonArray();
         JsonObject newJsonObj = new JsonObject();
         newJsonObj.add("news", jsonArrNews);

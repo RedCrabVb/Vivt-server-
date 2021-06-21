@@ -20,7 +20,7 @@ class ServerTest {
 
     @BeforeEach
     void serverStart() throws Exception {
-        if(Server.getInstance() == null) {
+        if (Server.getInstance() == null) {
             Main.main(new String[]{});
         }
     }
@@ -33,7 +33,7 @@ class ServerTest {
     @Test
     void serverAuthorizationTest() throws Exception {
         String api = "api/authorization";
-        String paramEnc =  URLEncoder.encode(String.format("login=%s&password=%s", "Mail", "pass"), StandardCharsets.UTF_8);
+        String paramEnc = URLEncoder.encode(String.format("login=%s&password=%s", "Mail", "pass"), StandardCharsets.UTF_8);
         String jsonToken = sendInquiry(api, paramEnc);
         this.token = JsonParser.parseString(jsonToken).getAsJsonObject().get("token").getAsString();
 
@@ -50,7 +50,7 @@ class ServerTest {
     @Test
     void serverGetSchedule() throws Exception {
         String api = "api/schedule";
-        String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
+        String paramEnc = URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
         String result = sendInquiry(api, paramEnc);
 
         System.out.println("Json get: " + result);
@@ -68,7 +68,7 @@ class ServerTest {
     @Test
     void serverGetMessage() throws Exception {
         String api = "api/message";
-        String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
+        String paramEnc = URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
 
         String result = sendInquiry(api, paramEnc);
 
@@ -78,11 +78,12 @@ class ServerTest {
     @Test
     void serverPersonDataGet() throws Exception {
         String api = "api/person_data";
-        String paramEnc =  URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
+        String paramEnc = URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
         String result = sendInquiry(api, paramEnc);
 
         System.out.println("Json get: " + result);
     }
+
     @Test
     void serverRegistration() throws Exception {
         String api = "api/registration";
@@ -125,7 +126,7 @@ class ServerTest {
         String urlString = "";
         String current;
 
-        while((current = in.readLine()) != null) {
+        while ((current = in.readLine()) != null) {
             urlString += current;
         }
 
