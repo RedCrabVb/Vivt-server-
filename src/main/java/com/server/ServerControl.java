@@ -1,6 +1,5 @@
 package com.server;
 
-import com.vivt.Config;
 import com.vivt.Main;
 
 import java.io.FileInputStream;
@@ -63,8 +62,7 @@ public class ServerControl extends Thread {
                         System.out.println(_help);
                         break;
                     case close:
-                        Config config = Config.getInstance();
-                        Server.getInstance(config.getServerPort(), Config.databaseCreate(config)).close();
+                        server.close();
                         return;
                     case sendMessage:
                         String title = scanner.next();

@@ -16,11 +16,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ServerTest {
     private static String token;
+    private static boolean isRunning;
 
     @BeforeEach
     void serverStart() throws Exception {
-        if (Server.getInstance() == null) {
+        if (!isRunning) {
             Main.main(new String[]{});
+            isRunning = true;
         }
     }
 

@@ -14,7 +14,8 @@ import java.util.logging.Level;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /*
  * The class is responsible for storing data, and application state,
@@ -25,37 +26,50 @@ public class Server {
     private HttpServer serverHttp;
     private DataBase dataBase;
 
+    @Autowired
+    @Qualifier("apiGetMessage")
+    private HandlerAPI apiGetMessage;
+    @Autowired
+    @Qualifier("apiGetPersonData")
+    private HandlerAPI apiGetPersonData;
+    @Autowired
+    @Qualifier("apiGetNews")
+    private HandlerAPI apiGetNews;
+    @Autowired
+    @Qualifier("apiGetSchedule")
+    private HandlerAPI apiGetSchedule;
+    @Autowired
+    @Qualifier("apiAuthorization")
+    private HandlerAPI apiAuthorization;
+    @Autowired
+    @Qualifier("apiRegistration")
+    private HandlerAPI apiRegistration;
+    @Autowired
+    @Qualifier("apiSendMessage")
+    private HandlerAPI apiSendMessage;
+
     public final static String tokenTest = "dG8qfPtBD6r60NQw-6r-qa:APA91bGeR0IHj7QqxO3lr5uGtPdd4ix_0VQqGRMjz8tcGyLJWqZstjmyzWGZUPubhmsnzEwYJvZB-XjesbLyd6FlMhzIvqkbm5dJqgRv0BVGzo2FjL1e9IlU543PNcEx3zB_JagdFA2K";
     private final static String apiKey = "AAAAHf4SliA:APA91bHpj0yrmmlORa4Zt_8-zx8ROEJutjfghnvdYGxDxQC0itHMOoOQf31XzsY6vUIffKb9tZU1A_xKq7etdCm6xIpmpm4cwjugerxzOENPFY8jm8o_D95Dnhvh7n-Sv1oz24uwKjax";
 
     private SendMessage sendMessage;
 
-    private Server(int port, DataBase dataBase) throws Exception {
+
+    public Server(int port,
+                  DataBase dataBase) throws Exception {
         this.dataBase = dataBase;
         this.serverHttp = HttpServer.create(new InetSocketAddress(port), 0);
     }
 
-    public static Server getInstance() {
-        return Server.server;
-    }
-
-    public static Server getInstance(int port, DataBase dataBase) throws Exception {
-        if (Server.server == null) {
-            Server.server = new Server(port, dataBase);
-        }
-
-        return Server.server;
-    }
-
     public void run() {
         this.sendMessage = new SendMessage(dataBase);
-        serverHttp.createContext("/api/message", new HandlerAPI(new GetMessage(dataBase, this), this));
-        serverHttp.createContext("/api/person_data", new HandlerAPI(new GetPersonData(dataBase, this), this));
-        serverHttp.createContext("/api/news", new HandlerAPI(new GetNews(dataBase), this));
-        serverHttp.createContext("/api/schedule", new HandlerAPI(new GetSchedule(dataBase, this), this));
-        serverHttp.createContext("/api/authorization", new HandlerAPI(new Authorization(dataBase), this));
-        serverHttp.createContext("/api/registration", new HandlerAPI(new Registration(dataBase), this));
-        serverHttp.createContext("/api/send_message", new HandlerAPI(this.sendMessage, this));
+
+        serverHttp.createContext("/api/message", apiGetMessage);
+        serverHttp.createContext("/api/person_data", apiGetPersonData);
+        serverHttp.createContext("/api/news", apiGetNews);
+        serverHttp.createContext("/api/schedule", apiGetSchedule);
+        serverHttp.createContext("/api/authorization", apiAuthorization);
+        serverHttp.createContext("/api/registration", apiRegistration);
+        serverHttp.createContext("/api/send_message", apiSendMessage);
         serverHttp.setExecutor(null); // creates a default executor
         serverHttp.start();
     }

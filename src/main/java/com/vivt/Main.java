@@ -2,6 +2,7 @@ package com.vivt;
 
 import com.server.Server;
 import com.server.ServerControl;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Date;
 import java.util.logging.Level;
@@ -9,11 +10,10 @@ import java.util.logging.Level;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Config config = Config.getInstance(args);
-        Server server = Server.getInstance(config.getServerPort(), Config.databaseCreate(config));
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        new ServerControl(config.getLogConfPath(), server);
-        server.run();
+        context.getBean(Server.class).run();
+        context.getBean(ServerControl.class);
 
         ServerControl.LOGGER.log(Level.INFO, "Server start " + new Date().toString());
     }
