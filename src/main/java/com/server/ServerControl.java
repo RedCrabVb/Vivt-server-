@@ -1,7 +1,7 @@
-package com.Server;
+package com.server;
 
-import com.Vivt.Config;
-import com.Vivt.Main;
+import com.vivt.Config;
+import com.vivt.Main;
 
 import java.io.FileInputStream;
 import java.util.Scanner;

@@ -1,6 +1,6 @@
-package com.Server;
+package com.server;
 
-import com.API.Command;
+import com.api.Command;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;

@@ -1,8 +1,8 @@
-package com.Vivt;
+package com.vivt;
 
-import com.DataBase.DataBase;
-import com.DataBase.JsonDataBase;
-import com.DataBase.MySqlDataBase;
+import com.dataBase.DataBase;
+import com.dataBase.JsonDataBase;
+import com.dataBase.MySqlDataBase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

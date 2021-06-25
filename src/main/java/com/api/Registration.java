@@ -1,7 +1,7 @@
-package com.API;
+package com.api;
 
-import com.DataBase.CreationJson;
-import com.DataBase.DataBase;
+import com.dataBase.CreationJson;
+import com.dataBase.DataBase;
 import com.google.gson.JsonObject;
 
 import java.util.Locale;

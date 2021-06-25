@@ -1,7 +1,7 @@
-package com.Vivt;
+package com.vivt;
 
-import com.Server.Server;
-import com.Server.ServerControl;
+import com.server.Server;
+import com.server.ServerControl;
 
 import java.util.Date;
 import java.util.logging.Level;

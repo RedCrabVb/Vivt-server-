@@ -1,7 +1,7 @@
-package com.Server;
+package com.server;
 
-import com.API.*;
-import com.DataBase.DataBase;
+import com.api.*;
+import com.dataBase.DataBase;
 
 import com.google.api.client.repackaged.com.google.common.annotations.VisibleForTesting;
 import com.google.gson.JsonObject;

@@ -1,7 +1,6 @@
-import com.Server.Server;
-import com.Server.ServerControl;
+import com.server.Server;
 import com.google.gson.JsonParser;
-import com.Vivt.Main;
+import com.vivt.Main;
 import org.junit.jupiter.api.*;
 
 import java.io.BufferedReader;

@@ -1,7 +1,7 @@
-package com.API;
+package com.api;
 
-import com.DataBase.DataBase;
-import com.Server.Server;
+import com.dataBase.DataBase;
+import com.server.Server;
 import com.google.gson.JsonObject;
 
 import java.util.Arrays;

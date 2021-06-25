@@ -1,6 +1,6 @@
-package com.DataBase;
+package com.dataBase;
 
-import com.Server.ServerControl;
+import com.server.ServerControl;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
