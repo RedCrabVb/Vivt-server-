@@ -1,7 +1,8 @@
-import com.server.Server;
 import com.google.gson.JsonParser;
 import com.vivt.Main;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ServerTest {
     private static String token;
@@ -28,7 +29,30 @@ class ServerTest {
 
     @AfterEach
     void endTest() throws Exception {
-        Thread.sleep(250);//fix bug java, https://bugs.openjdk.java.net/browse/JDK-8214300
+        Thread.sleep(50);//fix bug java, https://bugs.openjdk.java.net/browse/JDK-8214300
+    }
+
+    @Test
+    void serverRegistration() throws Exception {
+        String api = "api/registration";
+
+        String name = "testName";
+        String surname = "testSurname";
+        String patronymic = "testPatronymic";
+        String groups = "pks-019";
+        String mail = "mail222";
+        String password = "asdf";
+        String params = String.format("name=%s&surname=%s&patronymic=%s&groups=%s&password=%s&mail=%s",
+                name, surname, patronymic, groups, password, mail);
+        String paramEnc = URLEncoder.encode(params, StandardCharsets.UTF_8);
+        String result = sendInquiry(api, paramEnc);
+        try {
+            String token = JsonParser.parseString(result).getAsJsonObject().get("token").getAsString();
+            this.token = token;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Json get: " + result);
     }
 
     @Test
@@ -60,7 +84,7 @@ class ServerTest {
     @Test
     void serverSendMessage() throws Exception {
         String api = "api/send_message";
-        String paramEnc = URLEncoder.encode(String.format("recipient=%s&from_whom=%s&header=%s&text=%s", "gmail", "mail", "TestServer", "test test test"), StandardCharsets.UTF_8);
+        String paramEnc = URLEncoder.encode(String.format("recipient=%s&from_whom=%s&header=%s&text=%s", "gmail", token, "TestServer", "test test test"), StandardCharsets.UTF_8);
         String result = sendInquiry(api, paramEnc);
 
         System.out.println("Json get: " + result);
@@ -80,24 +104,6 @@ class ServerTest {
     void serverPersonDataGet() throws Exception {
         String api = "api/person_data";
         String paramEnc = URLEncoder.encode(String.format("token=%s", token), StandardCharsets.UTF_8);
-        String result = sendInquiry(api, paramEnc);
-
-        System.out.println("Json get: " + result);
-    }
-
-    @Test
-    void serverRegistration() throws Exception {
-        String api = "api/registration";
-
-        String name = "testName";
-        String surname = "testSurname";
-        String patronymic = "testPatronymic";
-        String groups = "pks-029";
-        String mail = "mail222";
-        String password = "asdf";
-        String params = String.format("name=%s&surname=%s&patronymic=%s&groups=%s&password=%s&mail=%s",
-                name, surname, patronymic, groups, password, mail);
-        String paramEnc = URLEncoder.encode(params, StandardCharsets.UTF_8);
         String result = sendInquiry(api, paramEnc);
 
         System.out.println("Json get: " + result);

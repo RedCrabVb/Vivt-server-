@@ -39,17 +39,42 @@ public class Student {
         this.groups_id = groups_id;
     }
 
-    public String getMail() {
-        return mail;
+    public int getIdStudent() {
+        return idStudent;
     }
 
     public String getToken() {
         return token;
     }
 
+    public String getMail() {
+        return mail;
+    }
+
     public String getPassword() {
         return password;
     }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public String getGrade_book_number() {
+        return grade_book_number;
+    }
+
+    public int getGroups_id() {
+        return groups_id;
+    }
+
 
     @Override
     public String toString() {
@@ -65,4 +90,5 @@ public class Student {
                 ", groups_id=" + groups_id +
                 '}';
     }
+
 }

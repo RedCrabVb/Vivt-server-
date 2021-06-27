@@ -17,7 +17,7 @@ public class SendMessage implements Command {
     @Override
     public JsonObject execute(Map<String, String> params) throws Exception {
         int recipient = dataBase.getIDbyMail(params.get("recipient"));
-        int from_whom = dataBase.getIDbyMail(params.get("from_whom"));
+        int from_whom = dataBase.getIDForToken(params.get("from_whom"));
         String header = params.get("header");
         String text = params.get("text");
 

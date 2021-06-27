@@ -19,6 +19,11 @@ public class Message {
     private String text;
     private long student_ID;
 
+    public Message() {
+
+
+    }
+
     public Message(int sender_id,
                    String header,
                    String text,
@@ -28,5 +33,29 @@ public class Message {
         this.header = header;
         this.text = text;
         this.student_ID = student_id;
+    }
+
+    public long getIdMessage() {
+        return idMessage;
+    }
+
+    public int getSender_id() {
+        return sender_id;
+    }
+
+    public boolean isIs_read() {
+        return is_read;
+    }
+
+    public String getHeader() {
+        return header;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public long getStudent_ID() {
+        return student_ID;
     }
 }
