@@ -1,10 +1,9 @@
 package com.api;
 
 import com.dataBase.DataBase;
-import com.server.*;
 import com.google.gson.JsonObject;
+import com.server.Server;
 
-import java.sql.SQLException;
 import java.util.Map;
 
 public class GetPersonData implements  Command {
@@ -17,7 +16,7 @@ public class GetPersonData implements  Command {
     }
 
     @Override
-    public JsonObject execute(Map<String, String> params) throws SQLException {
+    public JsonObject execute(Map<String, String> params) throws Exception {
         return dataBase.personData(server.getIDForParameters(params));
     }
 }

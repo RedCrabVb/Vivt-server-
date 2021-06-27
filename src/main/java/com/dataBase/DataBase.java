@@ -10,7 +10,7 @@ public interface DataBase {
 
     int getIDForToken(String token);
 
-    JsonObject personData(int ID) throws SQLException;
+    JsonObject personData(int ID) throws Exception;
     JsonObject schedule(int ID) throws SQLException;
     JsonObject news() throws SQLException;
     JsonObject importantDates() throws SQLException;

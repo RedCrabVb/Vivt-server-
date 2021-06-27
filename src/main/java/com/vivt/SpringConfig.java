@@ -39,9 +39,7 @@ public class SpringConfig {
     public DataBase dataBase() throws Exception {
         if (dataBase == null) {
             if (typeBase.equals("mysql")) {
-                return new MySqlDataBase(serverNameDB, portParameterDB,
-                        databaseNameParameterDB,
-                        userParameterDB, passwordParameterDB);
+                return new MySqlDataBase();
             } else if (typeBase.equals("json")) {
                 return new JsonDataBase(pathJsonDataBase);
             } else {
