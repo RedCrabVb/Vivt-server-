@@ -1,4 +1,4 @@
-package com.dataBase.models;
+package com.dataBase.hibernateDataBase.models;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +20,6 @@ public class Message {
     private long student_ID;
 
     public Message() {
-
 
     }
 

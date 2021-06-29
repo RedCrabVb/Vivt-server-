@@ -79,105 +79,6 @@
       "name": "testName",
       "patronymic": "testPatronymic",
       "grade_book_number": "pks-0292-5901436626437128515"
-    },
-    {
-      "ID": 1,
-      "Groups_ID": 1,
-      "token": "4b0c8b94-a75a-470f-9cf5-f7a6b9ce125e",
-      "mail": "mail222",
-      "password": "asdf",
-      "surname": "testSurname",
-      "name": "testName",
-      "patronymic": "testPatronymic",
-      "grade_book_number": "pks-0292-2371698041004931777"
-    },
-    {
-      "ID": 1,
-      "Groups_ID": 1,
-      "token": "8073e2e5-a906-4ad0-9169-f7e9c850bc10",
-      "mail": "mail222",
-      "password": "asdf",
-      "surname": "testSurname",
-      "name": "testName",
-      "patronymic": "testPatronymic",
-      "grade_book_number": "pks-02926215865697630557724"
-    },
-    {
-      "ID": 1,
-      "Groups_ID": 1,
-      "token": "2af2261a-544c-4826-874d-b7c40924a64e",
-      "mail": "mail222",
-      "password": "asdf",
-      "surname": "testSurname",
-      "name": "testName",
-      "patronymic": "testPatronymic",
-      "grade_book_number": "pks-02923432207247771000227"
-    },
-    {
-      "ID": 1,
-      "Groups_ID": 1,
-      "token": "cb2024d8-637a-459b-83d1-ea4fd5302869",
-      "mail": "mail222",
-      "password": "asdf",
-      "surname": "testSurname",
-      "name": "testName",
-      "patronymic": "testPatronymic",
-      "grade_book_number": "pks-0292-1454131443580051766"
-    },
-    {
-      "ID": 1,
-      "Groups_ID": 1,
-      "token": "380acb41-bae4-4e04-9d63-fd219056c5c1",
-      "mail": "mail222",
-      "password": "asdf",
-      "surname": "testSurname",
-      "name": "testName",
-      "patronymic": "testPatronymic",
-      "grade_book_number": "pks-0292-4493602491081318380"
-    },
-    {
-      "ID": 1,
-      "Groups_ID": 1,
-      "token": "e90834c3-0b58-4414-a6a4-f1603e0e6a76",
-      "mail": "mail222",
-      "password": "asdf",
-      "surname": "testSurname",
-      "name": "testName",
-      "patronymic": "testPatronymic",
-      "grade_book_number": "pks-0292-8138687323639921033"
-    },
-    {
-      "ID": 1,
-      "Groups_ID": 1,
-      "token": "651b2a23-6b1a-41d6-ba25-f9eb151a7391",
-      "mail": "mail222",
-      "password": "asdf",
-      "surname": "testSurname",
-      "name": "testName",
-      "patronymic": "testPatronymic",
-      "grade_book_number": "pks-0292-1764117950991368880"
-    },
-    {
-      "ID": 1,
-      "Groups_ID": 1,
-      "token": "8f381b93-a266-40fd-908a-1951e87d3a0b",
-      "mail": "mail222",
-      "password": "asdf",
-      "surname": "testSurname",
-      "name": "testName",
-      "patronymic": "testPatronymic",
-      "grade_book_number": "pks-02928031186863953725483"
-    },
-    {
-      "ID": 1,
-      "Groups_ID": 1,
-      "token": "d8ede218-c29e-42f8-8e92-7b724f96b2c7",
-      "mail": "mail222",
-      "password": "asdf",
-      "surname": "testSurname",
-      "name": "testName",
-      "patronymic": "testPatronymic",
-      "grade_book_number": "pks-0292-77947636208414251"
     }
   ],
   "teachers": [
@@ -275,6 +176,30 @@
       "from_whom": 1,
       "header": "sad",
       "text": "sdaf"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
+    },
+    {
+      "recipient": 1,
+      "from_whom": 2,
+      "header": "test test test",
+      "text": "TestServer"
     },
     {
       "recipient": 1,

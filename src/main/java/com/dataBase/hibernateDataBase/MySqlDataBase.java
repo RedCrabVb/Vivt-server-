@@ -1,9 +1,7 @@
-package com.dataBase;
+package com.dataBase.hibernateDataBase;
 
-import com.dataBase.models.Groups;
-import com.dataBase.models.Message;
-import com.dataBase.models.Student;
-import com.dataBase.models.Teacher;
+import com.dataBase.DataBase;
+import com.dataBase.hibernateDataBase.models.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -30,6 +28,7 @@ public class MySqlDataBase implements DataBase {
         configuration.addAnnotatedClass(Message.class);
         configuration.addAnnotatedClass(Student.class);
         configuration.addAnnotatedClass(Teacher.class);
+        configuration.addAnnotatedClass(Lesson.class);
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
         sessionFactory = configuration.buildSessionFactory(builder.build());
     }
@@ -96,7 +95,15 @@ public class MySqlDataBase implements DataBase {
 
     @Override
     public JsonObject schedule(int ID) throws SQLException {
-        return new JsonObject();
+        List<Day> days =  sessionFactory.openSession().createQuery("From Day").list();
+        JsonObject json = new JsonObject();
+        JsonArray jsonArray = new JsonArray();
+        json.add("jsonArray", jsonArray);
+        days.stream().filter(day -> day.getGroups_idGroup() == 1).forEach(day -> {
+            JsonObject obj = JsonParser.parseString(new Gson().toJson(day)).getAsJsonObject();
+            jsonArray.add(obj);
+        });
+        return json;
     }
 
     @Override
@@ -111,7 +118,7 @@ public class MySqlDataBase implements DataBase {
 
     @Override
     public JsonObject message(int ID) throws SQLException {
-        String query = "From Message";
+        String query = "From " + Message.class.getName();
         List<Message> messages =  sessionFactory.openSession().createQuery(query).list();
         JsonObject jsonObject = new JsonObject();
         JsonArray jsonArray = new JsonArray();
@@ -142,7 +149,7 @@ public class MySqlDataBase implements DataBase {
 
     @Override
     public int getIDbyMail(String mail) {
-        String quer = "From Student";
+        String quer = "From " + Student.class.getName();
         List<Student> groups = sessionFactory.openSession().createQuery(quer).list();
         for (Student student : groups) {
             if (student.getMail().equals(mail)) {

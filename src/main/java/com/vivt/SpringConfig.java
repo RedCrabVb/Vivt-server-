@@ -3,8 +3,8 @@ package com.vivt;
 
 import com.api.*;
 import com.dataBase.DataBase;
-import com.dataBase.JsonDataBase;
-import com.dataBase.MySqlDataBase;
+import com.dataBase.fileDataBase.JsonDataBase;
+import com.dataBase.hibernateDataBase.MySqlDataBase;
 import com.server.HandlerAPI;
 import com.server.Server;
 import com.server.ServerControl;

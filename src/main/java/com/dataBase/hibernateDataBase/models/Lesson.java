@@ -1,4 +1,4 @@
-package com.dataBase.models;
+package com.dataBase.hibernateDataBase.models;
 
 import javax.persistence.*;
 
@@ -11,6 +11,10 @@ public class Lesson {
     private int number_pairs;
     private int audience;
     private long day_idDay;
+
+    public Lesson() {
+
+    }
 
     public Lesson(int number_pairs, int audience, long day_idDay) {
         this.number_pairs = number_pairs;

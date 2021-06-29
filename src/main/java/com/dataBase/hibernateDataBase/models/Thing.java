@@ -1,4 +1,4 @@
-package com.dataBase.models;
+package com.dataBase.hibernateDataBase.models;
 
 import javax.persistence.*;
 

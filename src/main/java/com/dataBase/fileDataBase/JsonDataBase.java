@@ -1,5 +1,6 @@
-package com.dataBase;
+package com.dataBase.fileDataBase;
 
+import com.dataBase.DataBase;
 import com.google.gson.*;
 
 import java.io.FileNotFoundException;
