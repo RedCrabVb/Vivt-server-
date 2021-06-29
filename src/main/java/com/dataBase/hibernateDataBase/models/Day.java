@@ -34,4 +34,8 @@ public class Day {
     public long getGroups_idGroup() {
         return groups_idGroup;
     }
+
+    public long getIdDay() {
+        return idDay;
+    }
 }

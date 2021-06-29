@@ -10,8 +10,14 @@ public class Groups {
     private long idGroup;
     private String name_groups;
 
-    public Groups() {
+    public Groups(String name_groups) {
+        this.name_groups = name_groups;
     }
+
+    public Groups() {
+
+    }
+
 
     public long getIdGroup() {
         return idGroup;

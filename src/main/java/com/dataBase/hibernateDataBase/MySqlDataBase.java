@@ -1,6 +1,8 @@
 package com.dataBase.hibernateDataBase;
 
 import com.dataBase.DataBase;
+import com.dataBase.hibernateDataBase.dao.ScheduleDao;
+import com.dataBase.hibernateDataBase.dao.StudentDao;
 import com.dataBase.hibernateDataBase.models.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -19,8 +21,17 @@ import java.util.UUID;
 
 public class MySqlDataBase implements DataBase {
     private SessionFactory sessionFactory;
+    private StudentDao studentDao;
+    private ScheduleDao scheduleDao;
 
-    @Deprecated
+    private void init() {
+        //create table in database
+        Student student = new Student("asdf243", "testMail", "pass", "test", "test", "test", "test_432", 1);
+        Groups group = new Groups("test");
+
+        scheduleDao.createScheduleForGroup(2);
+    }
+
     public MySqlDataBase() {
         Configuration configuration = new Configuration().configure();
         configuration.addAnnotatedClass(Day.class);
@@ -31,21 +42,23 @@ public class MySqlDataBase implements DataBase {
         configuration.addAnnotatedClass(Lesson.class);
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
         sessionFactory = configuration.buildSessionFactory(builder.build());
+
+        studentDao = new StudentDao(sessionFactory);
+        scheduleDao = new ScheduleDao(sessionFactory);
+
+        init();
     }
 
 
     @Override
     public String authorization(String login, String password) {
-        List<Student> students =  sessionFactory.openSession().createQuery("From Student").list();
+        Student student =  (Student) sessionFactory.openSession()
+                .createQuery("From " + Student.class.getName() + " where mail = :login and password = :password")
+                .setParameter("login", login)
+                .setParameter("password", password)
+                .uniqueResult();
 
-        for (int i = 0; i < students.size(); i++) {
-            Student student = students.get(i);
-            if (student.getMail().equals(login) && student.getPassword().equals(password)) {
-                return student.getToken();
-            }
-        }
-
-        return null;
+        return student.getToken();
     }
 
     @Override
@@ -56,31 +69,17 @@ public class MySqlDataBase implements DataBase {
         String token = UUID.randomUUID().toString(); //BAD
         Student student = new Student(token, mail, password, surname, name, patronymic, grade_book, idGroup);
 
-        Session session = sessionFactory.openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.save(student);
-        tx1.commit();
-        session.close();
+        studentDao.save(student);
     }
 
     @Override
     public int getIDForToken(String token) {
-        List<Student> students =  sessionFactory.openSession().createQuery("From Student").list();
-
-        for (int i = 0; i < students.size(); i++) {
-            Student student = students.get(i);
-            if (student.getToken().equals(token)) {
-                return student.getIdStudent();
-            }
-        }
-
-        throw new IndexOutOfBoundsException("Not found groups");
+        return studentDao.getIDForToken(token);
     }
 
     @Override
-    public JsonObject personData(int ID) {
-        Session session = sessionFactory.openSession();
-        Student student = session.get(Student.class, ID);
+    public JsonObject personData(int id) {
+        Student student = studentDao.findById(id);
 
         JsonObject json = new JsonObject();
         json.addProperty("mail", student.getMail());
@@ -160,16 +159,13 @@ public class MySqlDataBase implements DataBase {
         throw new IndexOutOfBoundsException("Not found groups");
     }
 
-    private String getNameGroupForID(int ID) {
-        String quer = "From " + Groups.class.getName();
-        List<Groups> groups = sessionFactory.openSession().createQuery(quer).list();
-        for (Groups group : groups) {
-            if (group.getIdGroup() == ID) {
-                return  group.getName_groups();
-            }
-        }
-
-        throw new IndexOutOfBoundsException("Not found groups");
+    private String getNameGroupForID(long id) {
+        String query = "From " + Groups.class.getName() + " where idGroup = :idGroup";
+        Groups groups = (Groups) sessionFactory.openSession()
+                .createQuery(query)
+                .setParameter("idGroup", id)
+                .uniqueResult();
+        return groups.getName_groups();
     }
 
     private int getIDGroupForName(String name) {
