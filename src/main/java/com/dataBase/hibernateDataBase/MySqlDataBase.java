@@ -46,7 +46,7 @@ public class MySqlDataBase implements DataBase {
         studentDao = new StudentDao(sessionFactory);
         scheduleDao = new ScheduleDao(sessionFactory);
 
-        init();
+        //init();
     }
 
 
@@ -98,7 +98,7 @@ public class MySqlDataBase implements DataBase {
         JsonObject json = new JsonObject();
         JsonArray jsonArray = new JsonArray();
         json.add("jsonArray", jsonArray);
-        days.stream().filter(day -> day.getGroups_idGroup() == 1).forEach(day -> {
+        days.stream().filter(day -> day.getGroups_idGroup() == ID).forEach(day -> {
             JsonObject obj = JsonParser.parseString(new Gson().toJson(day)).getAsJsonObject();
             jsonArray.add(obj);
         });

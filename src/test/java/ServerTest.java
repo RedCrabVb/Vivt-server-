@@ -39,7 +39,7 @@ class ServerTest {
         String name = "testName";
         String surname = "testSurname";
         String patronymic = "testPatronymic";
-        String groups = "pks-019";
+        String groups = "pks-020";
         String mail = "mail222";
         String password = "asdf";
         String params = String.format("name=%s&surname=%s&patronymic=%s&groups=%s&password=%s&mail=%s",
