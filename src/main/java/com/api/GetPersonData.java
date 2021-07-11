@@ -17,6 +17,6 @@ public class GetPersonData implements  Command {
 
     @Override
     public JsonObject execute(Map<String, String> params) throws Exception {
-        return dataBase.personData(server.getIDForParameters(params));
+        return dataBase.personData(server.getStudentForParameter(params));
     }
 }

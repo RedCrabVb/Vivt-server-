@@ -17,6 +17,6 @@ public class GetMessage implements Command {
 
     @Override
     public JsonObject execute(Map<String, String> params) throws Exception {
-        return dataBase.message(server.getIDForParameters(params));
+        return dataBase.message(server.getStudentForParameter(params));
     }
 }

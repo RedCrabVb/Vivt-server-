@@ -59,7 +59,6 @@ public class JsonDataBase implements DataBase {
     }
 
     public void save() {
-
         try (FileWriter outputStream = new FileWriter(JsonDataBase.pathJsonDataBase)) {
             ;
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -71,6 +70,7 @@ public class JsonDataBase implements DataBase {
         }
     }
 
+    @Deprecated
     public JsonDataBase(String pathJsonDataBase) throws FileNotFoundException {
         //dataInJsonFormat = init();
         dataInJsonFormat = gson.fromJson(new FileReader(pathJsonDataBase), DataInJsonFormat.class);
@@ -117,9 +117,9 @@ public class JsonDataBase implements DataBase {
     }
 
     @Override
-    public JsonObject personData(int ID) throws SQLException {
+    public JsonObject personData(com.dataBase.hibernateDataBase.models.Student student) throws SQLException {
         for (Student elm : dataInJsonFormat.students) {
-            if (elm.getID() == ID) {
+            if (elm.getID() == student.getIdStudent()) {
                 String jsonStr = gson.toJson(elm);
                 return JsonParser.parseString(jsonStr).getAsJsonObject();
             }
@@ -129,10 +129,10 @@ public class JsonDataBase implements DataBase {
     }
 
     @Override
-    public JsonObject schedule(int ID) throws SQLException {
+    public JsonObject schedule(com.dataBase.hibernateDataBase.models.Student student) throws SQLException {
         int groups_ID = 0;
         for (Student elm : dataInJsonFormat.students) {
-            if (elm.getID() == ID) {
+            if (elm.getID() == student.getIdStudent()) {
                 groups_ID = elm.getGroups_ID();
                 break;
             }
@@ -163,10 +163,10 @@ public class JsonDataBase implements DataBase {
     }
 
     @Override
-    public JsonObject message(int ID) throws SQLException {
+    public JsonObject message(com.dataBase.hibernateDataBase.models.Student student) throws SQLException {
         JsonArray jsonMsg = new JsonArray();
         for (Message msg : dataInJsonFormat.messages) {
-            if (msg.getID() == ID) {
+            if (msg.getID() == student.getIdStudent()) {
                 jsonMsg.add(JsonParser.parseString(gson.toJson(msg)));
             }
         }
@@ -197,5 +197,10 @@ public class JsonDataBase implements DataBase {
         }
 
         throw new IllegalArgumentException("Not found user");
+    }
+
+    @Override
+    public com.dataBase.hibernateDataBase.models.Student getStudentForToken(String token) {
+        return null;
     }
 }

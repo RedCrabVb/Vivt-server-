@@ -18,7 +18,6 @@ public class GetSchedule implements Command {
 
     @Override
     public JsonObject execute(Map<String, String> params) throws SQLException {
-        int ID = server.getIDForParameters(params);
-        return dataBase.schedule(ID);
+        return dataBase.schedule(server.getStudentForParameter(params));
     }
 }

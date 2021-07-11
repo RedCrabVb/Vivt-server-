@@ -1,5 +1,6 @@
 package com.dataBase;
 
+import com.dataBase.hibernateDataBase.models.Student;
 import com.google.gson.JsonObject;
 
 import java.sql.SQLException;
@@ -10,13 +11,15 @@ public interface DataBase {
 
     int getIDForToken(String token);
 
-    JsonObject personData(int ID) throws Exception;
-    JsonObject schedule(int ID) throws SQLException;
+    JsonObject personData(Student student) throws Exception;
+    JsonObject schedule(Student student) throws SQLException;
     JsonObject news() throws SQLException;
     JsonObject importantDates() throws SQLException;
-    JsonObject message(int ID) throws SQLException;
+    JsonObject message(Student student) throws SQLException;
     JsonObject academicPerformance(int ID) throws SQLException;
 
     boolean sendMessage(int sender, int recipient, String header, String text);
     int getIDbyMail(String mail);
+
+    Student getStudentForToken(String token);
 }

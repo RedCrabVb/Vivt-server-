@@ -1,21 +1,23 @@
 package com.server;
 
-import com.api.*;
+import com.api.SendMessage;
 import com.dataBase.DataBase;
-
+import com.dataBase.hibernateDataBase.models.Student;
 import com.google.api.client.repackaged.com.google.common.annotations.VisibleForTesting;
 import com.google.gson.JsonObject;
 import com.sun.net.httpserver.HttpServer;
-
-import java.net.InetSocketAddress;
-import java.util.*;
-import java.util.logging.Level;
-
-import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+
+import java.net.InetSocketAddress;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
 
 /*
  * The class is responsible for storing data, and application state,
@@ -118,10 +120,11 @@ public class Server {
         return result;
     }
 
-    public int getIDForParameters(Map<String, String> params) {
+    public Student getStudentForParameter(Map<String, String> params) {
         String token = params.get("token");
         int userID = dataBase.getIDForToken(token);
-        return userID;
+        Student student = dataBase.getStudentForToken(token);
+        return student;
     }
 
     @VisibleForTesting

@@ -78,8 +78,8 @@ public class MySqlDataBase implements DataBase {
     }
 
     @Override
-    public JsonObject personData(int id) {
-        Student student = studentDao.findById(id);
+    public JsonObject personData(Student _student) {
+        Student student = studentDao.findById(_student.getIdStudent());
 
         JsonObject json = new JsonObject();
         json.addProperty("mail", student.getMail());
@@ -93,12 +93,12 @@ public class MySqlDataBase implements DataBase {
     }
 
     @Override
-    public JsonObject schedule(int ID) throws SQLException {
+    public JsonObject schedule(Student student) throws SQLException {
         List<Day> days =  sessionFactory.openSession().createQuery("From Day").list();
         JsonObject json = new JsonObject();
         JsonArray jsonArray = new JsonArray();
         json.add("jsonArray", jsonArray);
-        days.stream().filter(day -> day.getGroups_idGroup() == ID).forEach(day -> {
+        days.stream().filter(day -> day.getGroups_idGroup() == student.getGroups_id()).forEach(day -> {
             JsonObject obj = JsonParser.parseString(new Gson().toJson(day)).getAsJsonObject();
             jsonArray.add(obj);
         });
@@ -116,14 +116,14 @@ public class MySqlDataBase implements DataBase {
     }
 
     @Override
-    public JsonObject message(int ID) throws SQLException {
+    public JsonObject message(Student student) throws SQLException {
         String query = "From " + Message.class.getName();
         List<Message> messages =  sessionFactory.openSession().createQuery(query).list();
         JsonObject jsonObject = new JsonObject();
         JsonArray jsonArray = new JsonArray();
         jsonObject.add("array", jsonArray);
         for (Message message : messages) {
-            if (message.getStudent_ID() == ID) {
+            if (message.getStudent_ID() == student.getIdStudent()) {
                 jsonArray.add(JsonParser.parseString(new Gson().toJson(message)));
             }
         }
@@ -157,6 +157,16 @@ public class MySqlDataBase implements DataBase {
         }
 
         throw new IndexOutOfBoundsException("Not found groups");
+    }
+
+    @Override
+    public Student getStudentForToken(String token) {
+        String query = "From " + Student.class.getName() + " where token = :token";
+        Student student = (Student) sessionFactory.openSession()
+                .createQuery(query)
+                .setParameter("token", token)
+                .uniqueResult();
+        return student;
     }
 
     private String getNameGroupForID(long id) {
