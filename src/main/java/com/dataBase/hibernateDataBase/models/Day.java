@@ -10,11 +10,10 @@ public class Day {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idDay;
     private String day_of_week;
-    private long groups_idGroup;
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
+    @ManyToOne
+    @JoinColumn(name = "groups_idGroup")
+    private Groups groups;
+    @OneToMany
     @JoinColumn(name = "day_idDay")
     private List<Lesson> lesson;
 
@@ -24,7 +23,6 @@ public class Day {
 
     public Day(String day_of_week, long groups_idGroup) {
         this.day_of_week = day_of_week;
-        this.groups_idGroup = groups_idGroup;
     }
 
     public List<Lesson> getLesson() {
@@ -32,7 +30,7 @@ public class Day {
     }
 
     public long getGroups_idGroup() {
-        return groups_idGroup;
+        return groups.getIdGroup();
     }
 
     public long getIdDay() {

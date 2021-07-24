@@ -12,9 +12,23 @@ public class Thing {
     private String name_things;
     private int teacher_idTeacher;
 
-    public Thing(String type_lesson, String name_things, int teacher_idTeacher) {
-        this.type_lesson = type_lesson;
-        this.name_things = name_things;
-        this.teacher_idTeacher = teacher_idTeacher;
+    public Thing() {
+
+    }
+
+    public long getIdThing() {
+        return idThing;
+    }
+
+    public String getType_lesson() {
+        return type_lesson;
+    }
+
+    public String getName_things() {
+        return name_things;
+    }
+
+    public int getTeacher_idTeacher() {
+        return teacher_idTeacher;
     }
 }

@@ -40,6 +40,7 @@ public class MySqlDataBase implements DataBase {
         configuration.addAnnotatedClass(Student.class);
         configuration.addAnnotatedClass(Teacher.class);
         configuration.addAnnotatedClass(Lesson.class);
+        configuration.addAnnotatedClass(Thing.class);
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
         sessionFactory = configuration.buildSessionFactory(builder.build());
 
